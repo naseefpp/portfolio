@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naseef P.P. - Actor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue+Condensed:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue Condensed', Arial, sans-serif;
+            background-color: white;
+            color: black;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: white;
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+            height: 80px;
+        }
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            margin-left: 2rem;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: black;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: text-decoration 0.3s;
+        }
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: black;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            padding-top: 80px;
+            box-sizing: border-box;
+            background-image: url('images/hero-bg-image.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .hero-content {
+            z-index: 2;
+            width: 100%;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+        .headshot {
+            width: 250px;
+            height: 300px;
+            background: #ddd;
+            margin: 0 auto 2rem;
+            border-radius: 10px;
+            background-image: url('images/hero-headshot.jpg');
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.3s;
+        }
+        .headshot:hover {
+            transform: scale(1.05);
+        }
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 300;
+            margin: 0 0 1rem;
+		color: white;
+            letter-spacing: 0.1em;
+        }
+        .tagline {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin: 0 0 2rem;
+		color: white;
+            opacity: 0.8;
+        }
+        .cta {
+            background: black;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.3s;
+            display: inline-block;
+        }
+        .cta:hover {
+            background: #333;
+            transform: translateY(-2px);
+        }
+        .teasers {
+            padding: 5rem 0;
+            background: white;
+        }
+        .teasers h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 3rem;
+            letter-spacing: 0.1em;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .teaser-item {
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+		box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+        .teaser-item:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transform: translateY(-4px);
+        }
+        .teaser-item img {
+            width: auto;
+            height: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        .teaser-item:hover img {
+            transform: scale(1.05);
+        }
+        .teaser-item h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin: 1rem 0 0.5rem;
+        }
+        .teaser-item h3 a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+        .teaser-item h3 a:hover {
+            color: #333;
+        }
+        .teaser-item p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        .teaser-item p a {
+            text-decoration: none;
+            color: inherit;
+            opacity: 0.9;
+            transition: opacity 0.3s;
+        }
+        .teaser-item p a:hover {
+            opacity: 1;
+        }
+        .bio {
+            padding: 5rem 0;
+            background: #f9f9f9;
+            position: relative;
+        }
+        .bio::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 1px;
+            background: black;
+        }
+        .bio .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+        .bio-image {
+            width: 100%;
+            height: 500px;
+            background: #ddd;
+            border-radius: 10px;
+            background-image: url('images/bio-versatility-still.jpg');
+            background-size: cover;
+            background-position: 80% center;
+            transition: transform 0.3s;
+        }
+        .bio-image:hover {
+            transform: scale(1.02);
+        }
+        .bio-content h2 {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            letter-spacing: 0.1em;
+        }
+        .bio-content ul {
+            list-style: none;
+            padding: 0;
+        }
+        .bio-content li {
+            margin: 0 0 1rem;
+            font-size: 1rem;
+            opacity: 0.8;
+            display: flex;
+            align-items: baseline;
+            word-break: keep-all;
+            text-align: left;
+            transition: transform 0.3s;
+        }
+        .bio-content li:hover {
+            transform: translateX(4px);
+        }
+        .bio-content li i {
+            margin-right: 0.5rem;
+            width: 1rem;
+            opacity: 0.5;
+            flex-shrink: 0;
+            transition: color 0.3s;
+        }
+        .bio-content li:hover i {
+            color: #333;
+        }
+        .certificate {
+            padding: 3rem 0;
+            background: white;
+            text-align: center;
+        }
+        .certificate h2 {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            letter-spacing: 0.1em;
+        }
+        .certificate img {
+            max-width: 600px;
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            border: 1px solid #eee;
+            transition: transform 0.3s;
+        }
+        .certificate img:hover {
+            transform: scale(1.02);
+        }
+        .certificate p {
+            opacity: 0.7;
+            font-size: 1rem;
+            margin-top: 1rem;
+        }
+        .gallery-tease {
+            padding: 5rem 0;
+            background: #f9f9f9;
+            text-align: center;
+        }
+        .gallery-tease h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 3rem;
+            letter-spacing: 0.1em;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .gallery-item {
+            height: 200px;
+            background: #ddd;
+            border-radius: 10px;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.3s, border 0.3s;
+        }
+        .gallery-item:hover {
+            transform: scale(1.1);
+            //border: 2px solid #000;
+        }
+        .explore-btn {
+            background: black;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .explore-btn:hover {
+            background: #333;
+            transform: translateY(-2px);
+        }
+        .contact-section {
+            padding: 5rem 0;
+            background: white;
+        }
+        .contact-card {
+            background: #f0f0f0;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            padding: 2rem;
+            display: flex;
+            align-items: stretch;
+            gap: 2rem;
+            min-height: 250px;
+        }
+        .card-text {
+            flex: 1;
+            text-align: left;
+        }
+        .card-text h2 {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.1em;
+            opacity: 0.8;
+        }
+        .card-text .underline {
+            width: 100px;
+            height: 1px;
+            background: black;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+        .card-text ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .card-text li {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            opacity: 0.8;
+            display: flex;
+            align-items: baseline;
+            transition: transform 0.3s;
+        }
+        .card-text li:hover {
+            transform: translateX(4px);
+        }
+        .card-text li i {
+            margin-right: 0.5rem;
+            width: 1rem;
+            color: black;
+            opacity: 0.8;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        .card-text li:hover i {
+            color: #333;
+        }
+        .card-text a {
+            text-decoration: none;
+            color: black;
+            transition: opacity 0.3s;
+        }
+        .card-text a:hover {
+            opacity: 1;
+		color: #333;
+        }
+        .card-image {
+            width: 350px;
+            height: auto;
+            //background: #ccc;
+            //border-radius: 10px;
+            background-image: url('images/contact-casual-headshot.png');
+            background-size: contain;
+		background-repeat: no-repeat;
+            background-position: right;
+            flex-shrink: 0;
+        }
+        footer {
+            background: black;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        .footer-icons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        .footer-icons a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s, transform 0.3s;
+        }
+        .footer-icons a:hover {
+            color: #ccc;
+            transform: rotate(5deg);
+        }
+        .copyright {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+	a {
+ 		text-decoration: none;
+		color: inherit;
+	}
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: black;
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            z-index: 1000;
+            transition: background 0.3s;
+        }
+        .back-to-top.show {
+            display: block;
+        }
+        .back-to-top:hover {
+            background: #333;
+        }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .tagline { font-size: 1.2rem; }
+            .hero { padding-top: 80px; }
+            .hamburger { display: flex; }
+            nav ul { 
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: white;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: 2rem;
+                transition: right 0.3s;
+            }
+            nav ul.active { right: 0; }
+            nav ul li { margin: 1rem 0; }
+            .bio .container { grid-template-columns: 1fr; gap: 2rem; }
+            .bio-content { text-align: left; }
+            .bio-content li { justify-content: flex-start; text-align: left; word-break: normal; }
+            .contact-card {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .card-image {
+                width: 100%;
+                height: 250px;
+            }
+            .footer-icons { flex-direction: column; gap: 1rem; }
+            @media (min-width: 480px) { .footer-icons { flex-direction: row; } }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="logo">
+                <h3 style="margin: 0; font-weight: 700;">Naseef P P</h3>
+            </div>
+            <ul id="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#teasers">Filmography</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#directing">Directing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="headshot"></div>
+            <h1>Naseef P P</h1>
+            <p class="tagline">Actor/Model</p>
+            <a href="#teasers" class="cta">Explore Work</a>
+        </div>
+    </section>
+
+    <section id="teasers" class="teasers">
+        <div class="container">
+            <h2>Featured Works</h2>
+            <div class="grid">
+		<a href="https://www.imdb.com/title/tt34335405/" target="_blank" rel="noopener noreferrer">
+                <div class="teaser-item">
+                    <img src="images/featured-soothravakyam-poster.jpg" alt="Soothravakyam">
+                    <h3>Soothravakyam (2025)</h3>
+                    <p>Title Role: Akhil<br>Dir. Eugien Jos Chirammel</p>
+                </div>
+		</a>
+		<a href="https://www.youtube.com/watch?v=OAc6fc6zDJc" target="_blank" rel="noopener noreferrer">
+                <div class="teaser-item">
+                    <img src="images/featured-favorite-spot-still.jpg" alt="Favorite Spot">
+                    <h3>Favorite Spot (2025)</h3>
+                    <p>Short Film<br>Lead Role</p>
+                </div>
+		</a>
+		<a href="https://www.instagram.com/naseef_pp" target="_blank" rel="noopener noreferrer">
+                <div class="teaser-item">
+                    <img src="images/featured-saral-homes-ad.jpg" alt="Saral Homes">
+                    <h3>Saral Homes Ads</h3>
+                    <p>Recurring Model<br>Commercial Campaign</p>
+                </div>
+		</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="bio">
+        <div class="container">
+            <div class="bio-image"></div>
+            <div class="bio-content">
+                <h2>About Naseef</h2>
+                <ul>
+                    <li><i class="fas fa-calendar-alt"></i> Age Range: 18-28</li>
+                    <li><i class="fas fa-ruler-vertical"></i> Height: 170 cm</li>
+                    <li><i class="fas fa-weight-hanging"></i> Build: Medium/Slender</li>
+                    <li><i class="fas fa-palette"></i> Hair: Curly, Black</li>
+                    <li><i class="fas fa-eye"></i> Eyes: Dark Brown</li>
+                    <li><i class="fas fa-globe"></i> Languages: English, Malayalam, Hindi, Tamil</li>
+                    <li><i class="fas fa-graduation-cap"></i> Training: Screen Acting Course, Nova Film Institute</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="certificate">
+        <div class="container">
+            <h2>Screen Acting Course</h2>
+            <img src="images/certificate-nova-acting-course.jpg" alt="Nova Film Institute Certificate">
+            <p>Nova Film Institute, Ernakulam</p>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery-tease">
+        <div class="container">
+            <h2>Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item" style="background-image: url('images/gallery-tease-1.jpg');"></div>
+                <div class="gallery-item" style="background-image: url('images/gallery-tease-2.jpg');"></div>
+                <div class="gallery-item" style="background-image: url('images/gallery-tease-3.jpg');"></div>
+                <div class="gallery-item" style="background-image: url('images/gallery-tease-4.jpg');"></div>
+            </div>
+            <a href="#gallery" class="explore-btn">Explore Gallery</a>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-card">
+                <div class="card-text">
+                    <h2>Let's Connect</h2>
+                    <div class="underline"></div>
+                    <ul>
+                        <li>
+				<a href="https://wa.me/917907885626" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-whatsapp"></i>
+                            +91 79078 85626</a>
+                        </li>
+                        <li>
+				<a href="mailto:naseefppactor@gmail.com">
+                            <i class="fas fa-envelope"></i>
+                            naseefppactor@gmail.com</a>
+                        </li>
+                        <li>
+				<a href="https://www.instagram.com/naseef_pp/" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-instagram"></i>
+                            @naseef_pp</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="card-image"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-icons">
+                <a href="https://www.instagram.com/naseef_pp/" target="_blank" rel="noopener noreferrer" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/917907885626" target="_blank" rel="noopener noreferrer" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:naseefppactor@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p class="copyright">© 2025 Naseef P.P. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <button class="back-to-top" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Hamburger menu toggle
+        function toggleMenu() {
+            const menu = document.getElementById('nav-menu');
+            menu.classList.toggle('active');
+        }
+
+        // Close menu on link click
+        document.querySelectorAll('#nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('nav-menu').classList.remove('active');
+            });
+        });
+
+        // Smooth scroll for CTAs
+        document.querySelector('.cta').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('#teasers').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Back to top button
+        window.onscroll = function() {
+            const btn = document.querySelector('.back-to-top');
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                btn.classList.add('show');
+            } else {
+                btn.classList.remove('show');
+            }
+        };
+        function scrollToTop() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+</body>
+</html>
