@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Naseef P.P. - Actor</title>
+    <title>Naseef P P - Actor</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue+Condensed:wght@300;500;700&display=swap" rel="stylesheet">
@@ -80,9 +80,10 @@
             box-sizing: border-box;
             background-image: url('images/hero-bg-image.jpg');
             background-size: cover;
-		background-position: 20% center;
+		background-position: 25% center;
             background-attachment: fixed;
 		animation: heroFadeIn 1.5s ease-out;
+		/* animation-fill-mode: forwards; */
         }
 	.hero::before {
             content: '';
@@ -109,11 +110,13 @@
 	@keyframes heroFadeIn {
     		from {
         		opacity: 0;
-        		background-position: center 20%; /* Slight upward shift for parallax feel */
+        		background-position: 25% 30%; /* Slight upward shift for parallax feel */
+			transform: scale(1.05);
     		}
     		to {
         		opacity: 1;
-        		background-position: center; /* Ends centered */
+        		background-position: 25% center; /* Ends centered */
+			transform: scale(1);
     		}
 	}
 	@keyframes fadeInUp {
@@ -455,11 +458,11 @@
         }
         .card-image {
             width: 350px;
-            height: auto;
+            height: 250px;
             background-image: url('images/contact-casual-headshot.png');
             background-size: contain;
 		background-repeat: no-repeat;
-            background-position: right;
+            background-position: 70% center;
             flex-shrink: 0;
         }
         footer {
@@ -547,8 +550,12 @@
         color: #e0e0e0;
     }
     .teaser-item {
-        box-shadow: 0 4px 8px rgba(255,255,255,0.1); /* Light shadow on dark */
+        box-shadow: 0 4px 8px rgba(100,100,100,0.1); /* Light shadow on dark, original value was 255,255,255,0.1 */
     }
+	.teaser-item:hover {
+            box-shadow: 0 4px 8px rgba(255,255,255,0.1);
+            transform: translateY(-4px);
+        }
     .teaser-item h3, .teaser-item p {
         color: #e0e0e0;
     }
@@ -591,11 +598,11 @@
     .gallery-tease h2 {
         color: #e0e0e0;
     }
-    .gallery-item {
+    /* .gallery-item {
         box-shadow: 0 2px 4px rgba(255,255,255,0.1);
-    }
+    } */
     .gallery-item:hover {
-        box-shadow: 0 4px 8px rgba(255,255,255,0.2);
+        box-shadow: 0 4px 8px rgba(255,255,255,0.1);
     }
     .explore-btn {
         background: #fff;
@@ -676,7 +683,8 @@
                 right: -100%;
                 width: 100%;
                 height: calc(100vh - 80px);
-                background: white;
+                background: black;
+		opacity: 95%;
                 flex-direction: column;
                 justify-content: flex-start;
                 align-items: center;
@@ -685,6 +693,7 @@
             }
             nav ul.active { right: 0; }
             nav ul li { margin: 1rem 0; }
+		nav ul li a { color: white; }
             .bio .container { grid-template-columns: 1fr; gap: 2rem; }
             .bio-content { text-align: left; }
             .bio-content li { justify-content: flex-start; text-align: left; word-break: normal; }
@@ -712,7 +721,7 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#teasers">Filmography</a></li>
                 <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#directing">Directing</a></li>
+                <!-- <li><a href="#directing">Directing</a></li> -->
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="hamburger" onclick="toggleMenu()">
@@ -796,7 +805,7 @@
                 <div class="gallery-item" style="background-image: url('images/gallery-tease-3.jpg');"></div>
                 <div class="gallery-item" style="background-image: url('images/gallery-tease-4.jpg');"></div>
             </div>
-            <a href="#gallery" class="explore-btn">Explore Gallery</a>
+            <!-- <a href="#gallery" class="explore-btn">Explore Gallery</a> -->
         </div>
     </section>
 
@@ -901,5 +910,3 @@
     </script>
 </body>
 </html>
-
-
