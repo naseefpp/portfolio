@@ -514,6 +514,158 @@
             background: #333;
         }
 
+		@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212;
+        color: #e0e0e0;
+    }
+    nav {
+        background: #1e1e1e;
+        border-bottom: 1px solid #333;
+    }
+    nav ul li a {
+        color: #e0e0e0;
+    }
+    nav ul li a:hover {
+        text-decoration: underline;
+        color: #fff;
+    }
+    .hamburger span {
+        background: #fff;
+    }
+    .hero {
+        background-image: url('images/hero-bg-image.jpg');
+    }
+    .hero::before {
+        background: rgba(0, 0, 0, 0.6); /* Darker overlay for contrast */
+    }
+    .hero-content {
+        background: rgba(30, 30, 30, 0.8); /* Dark semi-transparent */
+    }
+    .hero h1, .hero .tagline {
+        color: #fff;
+    }
+    .cta {
+        background: #fff;
+        color: #000;
+    }
+    .cta:hover {
+        background: #ccc;
+    }
+    .teasers {
+        background: #1a1a1a;
+    }
+    .teasers h2 {
+        color: #e0e0e0;
+    }
+    .teaser-item {
+        box-shadow: 0 4px 8px rgba(255,255,255,0.1); /* Light shadow on dark */
+    }
+    .teaser-item h3, .teaser-item p {
+        color: #e0e0e0;
+    }
+    .teaser-item p a {
+        color: #e0e0e0;
+    }
+    .teaser-item p a:hover {
+        color: #fff;
+    }
+    .bio {
+        background: #1a1a1a;
+    }
+    .bio::before {
+        background: #fff;
+    }
+    .bio-content h2 {
+        color: #e0e0e0;
+    }
+    .bio-content li {
+        color: #e0e0e0;
+    }
+    .bio-content li i {
+        color: #fff;
+    }
+    .bio-content li:hover i {
+        color: #ccc;
+    }
+    .certificate {
+        background: #1a1a1a;
+    }
+    .certificate h2 {
+        color: #e0e0e0;
+    }
+    .certificate p {
+        color: #ccc;
+    }
+    .gallery-tease {
+        background: #1a1a1a;
+    }
+    .gallery-tease h2 {
+        color: #e0e0e0;
+    }
+    .gallery-item {
+        box-shadow: 0 2px 4px rgba(255,255,255,0.1);
+    }
+    .gallery-item:hover {
+        box-shadow: 0 4px 8px rgba(255,255,255,0.2);
+        border: 2px solid #fff;
+    }
+    .explore-btn {
+        background: #fff;
+        color: #000;
+    }
+    .explore-btn:hover {
+        background: #ccc;
+    }
+    .contact-section {
+        background: #1a1a1a;
+    }
+    .contact-card {
+        background: #2a2a2a;
+        border: 2px solid #444;
+    }
+    .card-text h2 {
+        color: #e0e0e0;
+    }
+    .card-text .underline {
+        background: #fff;
+    }
+    .card-text li {
+        color: #e0e0e0;
+    }
+    .card-text li i {
+        color: #fff;
+    }
+    .card-text li:hover i {
+        color: #ccc;
+    }
+    .card-text a {
+        color: #e0e0e0;
+    }
+    .card-text a:hover {
+        color: #fff;
+    }
+    footer {
+        background: #0d0d0d;
+    }
+    .footer-icons a {
+        color: #fff;
+    }
+    .footer-icons a:hover {
+        color: #ccc;
+    }
+    .copyright {
+        color: #ccc;
+    }
+    .back-to-top {
+        background: #fff;
+        color: #000;
+    }
+    .back-to-top:hover {
+        background: #ccc;
+    }
+	    }
+
 	@media (max-width: 1200px) {
 		.hero-content {
 			margin-left: 15%;
@@ -762,3 +914,4 @@
     </script>
 </body>
 </html>
+
