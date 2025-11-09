@@ -32,7 +32,7 @@
             z-index: 1000;
             padding: 1rem 0;
             border-bottom: 1px solid #eee;
-            height: 80px;
+            height: 3rem;
         }
         nav .container {
             display: flex;
@@ -131,6 +131,7 @@
             width: 100%;
 		max-width: 600px;
             padding: 2rem;
+		padding-bottom: 5rem;
 		animation: fadeInUp 1s ease-out; /* Fade-in animation */
 		animation-fill-mode: both;
 		margin-left: 30%;
@@ -277,7 +278,7 @@
             margin: 0;
             text-align: center;
             opacity: 0.9;
-			text-shadow: 0 1px 3px rgba(0,0,0,0.9);
+		text-shadow: 0 1px 3px rgba(0,0,0,0.9);
         }
 	.featured-swiper {
     position: relative; /* Allows pseudo-elements */
@@ -315,8 +316,8 @@
         /* Custom Swiper Arrows/Pagination - Black/Grey Theme */
         .swiper-button-next, .swiper-button-prev {
             color: #000 !important; /* Black arrows */
-    		width: 50px;
-    		height: 50px;
+    		width: 40px;
+    		height: 40px;
     		display: flex;
     		align-items: center;
     		justify-content: center;
@@ -443,22 +444,76 @@
             margin-bottom: 3rem;
             letter-spacing: 0.1em;
         }
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
+	.gallery-grid {
+  		display: grid;
+  		gap: 0.5rem;
+		margin-bottom: 2rem;
+	}
         .gallery-item {
-            height: 200px;
+            /* height: 200px; */
             background: #ddd;
             border-radius: 10px;
             background-size: cover;
             background-position: center;
             transition: transform 0.3s, border 0.3s;
         }
+	/* Landscape layout: 3-column, 2-row collage */
+@media (min-width: 769px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 300px);
+  }
+
+  .gallery-item:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  .gallery-item:nth-child(2) {
+    grid-column: 2 / span 2;
+    grid-row: 1;
+  }
+
+  .gallery-item:nth-child(3) {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .gallery-item:nth-child(4) {
+    grid-column: 3;
+    grid-row: 2;
+  }
+}
+
+/* Portrait layout: 2-column, 3-row collage */
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 200px);
+  }
+
+  .gallery-item:nth-child(2) {
+    grid-column: 1 / span 2;
+    grid-row: 1;
+  }
+
+  .gallery-item:nth-child(1) {
+    grid-column: 1;
+    grid-row: 2 / span 2;
+  }
+
+  .gallery-item:nth-child(3) {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .gallery-item:nth-child(4) {
+    grid-column: 2;
+    grid-row: 3;
+  }
+}
         .gallery-item:hover {
-            transform: scale(1.1);
+            transform: scale(1.01);
         }
         .explore-btn {
             background: black;
@@ -475,6 +530,109 @@
             background: #333;
             transform: translateY(-2px);
         }
+
+	/* Updated Gallery section */
+
+.gallery-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+.tab-btn {
+  background: none;
+  border: none;
+  color: black;
+  font-weight: 600;
+  position: relative;
+  padding: 0.6rem 1.2rem;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.tab-btn::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: black;
+  transition: all 0.3s ease;
+}
+.tab-btn:hover::after,
+.tab-btn.active::after {
+  width: 100%;
+  left: 0;
+}
+
+.tab-panel {
+  display: none;
+  animation: galleryfadeIn 0.5s ease-out;
+}
+.tab-panel.active {
+  display: block;
+}
+
+@keyframes galleryfadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+	.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 4000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+  cursor: zoom-out;
+  transition: opacity 0.3s ease;
+}
+.lightbox.show {
+  display: flex;
+}
+.lightbox-img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255,255,255,0.1);
+}
+.lightbox-close {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  z-index: 4100;
+}
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 3rem;
+  color: white;
+  cursor: pointer;
+  z-index: 4100;
+  padding: 0 1rem;
+  user-select: none;
+}
+.lightbox-prev { left: 1rem; }
+.lightbox-next { right: 1rem; }
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+  color: #ccc;
+}
+
+	/* END of Gallery section */
+
         .contact-section {
             padding: 5rem 0;
             background: white;
@@ -644,8 +802,11 @@
     .featured-swiper::after {
         background: linear-gradient(to left, #1a1a1a 10%, transparent 100%);
     }
+    .featured-card {
+    	box-shadow: 0 2px 3px rgba(255,255,255,0.2);
+     }
     .featured-card:hover {
-        box-shadow: 0 8px 12px rgba(255,255,255,0.1);
+        box-shadow: 0 8px 12px rgba(255,255,255,0.2);
     }
     .featured-overlay {
         color: #e0e0e0;
@@ -699,6 +860,19 @@
     .gallery-item:hover {
         box-shadow: 0 4px 8px rgba(255,255,255,0.1);
     }
+	.gallery-item {
+  		box-shadow: 0 2px 4px rgba(255, 255, 255, 0.2);
+	}
+	.gallery-tabs {
+  		background: transparent;
+	}
+
+	.tab-btn {
+  		color: #eee;
+	}
+	.tab-btn::after {
+		background: white;
+	}
     .explore-btn {
         background: #fff;
         color: #000;
@@ -855,70 +1029,70 @@
                 <div class="swiper-wrapper">
                     <!-- Slides repeated x2 for loop -->
                     <div class="swiper-slide">
-                        <a href="https://www.imdb.com/title/tt34335405/" target="_blank" rel="noopener noreferrer">
                             <div class="featured-card">
+				<a href="https://www.imdb.com/title/tt34335405/" target="_blank" rel="noopener noreferrer">
                                 <img src="images/featured-soothravakyam-poster.jpg" alt="Soothravakyam Poster">
                                 <div class="featured-overlay">
                                     <h3>Soothravakyam (2025)</h3>
                                     <p>Title Role<br>Movie</p>
                                 </div>
+				</a>
                             </div>
-                        </a>
                     </div>
                     <div class="swiper-slide">
-                        <a href="https://www.youtube.com/watch?v=OAc6fc6zDJc" target="_blank" rel="noopener noreferrer">
                             <div class="featured-card">
+				<a href="https://www.youtube.com/watch?v=OAc6fc6zDJc" target="_blank" rel="noopener noreferrer">
                                 <img src="images/featured-favorite-spot-still.jpg" alt="Favorite Spot Still">
                                 <div class="featured-overlay">
                                     <h3>Favorite Spot (2025)</h3>
                                     <p>Title Role<br>Short Film</p>
                                 </div>
+				</a>
                             </div>
-                        </a>
                     </div>
                     <div class="swiper-slide">
-                        <a href="https://www.instagram.com/naseef_pp" target="_blank" rel="noopener noreferrer">
                             <div class="featured-card">
+				<a href="https://www.instagram.com/naseef_pp" target="_blank" rel="noopener noreferrer">
                                 <img src="images/featured-saral-homes-ad.jpg" alt="Saral Homes Ad">
                                 <div class="featured-overlay">
                                     <h3>Saral Homes Ads</h3>
                                     <p>Recurring Model<br>Commercial Campaign</p>
                                 </div>
+				</a>
                             </div>
-                        </a>
                     </div>
                     <div class="swiper-slide">
-                        <a href="https://www.imdb.com/title/tt34335405/" target="_blank" rel="noopener noreferrer">
                             <div class="featured-card">
+				<a href="https://www.imdb.com/title/tt34335405/" target="_blank" rel="noopener noreferrer">
                                 <img src="images/featured-soothravakyam-poster.jpg" alt="Soothravakyam Poster">
                                 <div class="featured-overlay">
                                     <h3>Soothravakyam (2025)</h3>
                                     <p>Title Role<br>Movie</p>
                                 </div>
+				</a>
                             </div>
-                        </a>
                     </div>
                     <div class="swiper-slide">
-                        <a href="https://www.youtube.com/watch?v=OAc6fc6zDJc" target="_blank" rel="noopener noreferrer">
                             <div class="featured-card">
+				<a href="https://www.youtube.com/watch?v=OAc6fc6zDJc" target="_blank" rel="noopener noreferrer">
                                 <img src="images/featured-favorite-spot-still.jpg" alt="Favorite Spot Still">
                                 <div class="featured-overlay">
                                     <h3>Favorite Spot (2025)</h3>
                                     <p>Title Role<br>Short Film</p>
                                 </div>
+				</a>
                             </div>
-                        </a>
                     </div>
                     <div class="swiper-slide">
-                        <a href="https://www.instagram.com/naseef_pp" target="_blank" rel="noopener noreferrer">
                             <div class="featured-card">
+				<a href="https://www.instagram.com/naseef_pp" target="_blank" rel="noopener noreferrer">
                                 <img src="images/featured-saral-homes-ad.jpg" alt="Saral Homes Ad">
                                 <div class="featured-overlay">
                                     <h3>Saral Homes Ads</h3>
                                     <p>Recurring Model<br>Commercial Campaign</p>
                                 </div>
+				</a>
                             </div>
-                        </a>
                     </div>
                 </div>
                 <div class="swiper-button-next"></div>
@@ -954,18 +1128,92 @@
         </div>
     </section>
 
-    <section id="gallery" class="gallery-tease">
-        <div class="container">
-            <h2>Gallery</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item" style="background-image: url('images/gallery-tease-1.jpg');"></div>
-                <div class="gallery-item" style="background-image: url('images/gallery-tease-2.jpg');"></div>
-                <div class="gallery-item" style="background-image: url('images/gallery-tease-3.jpg');"></div>
-                <div class="gallery-item" style="background-image: url('images/gallery-tease-4.jpg');"></div>
-            </div>
-            <!-- <a href="#gallery" class="explore-btn">Explore Gallery</a> -->
+	
+
+	<!-- New gallery -->
+
+	<section id="gallery" class="gallery-tease">
+  <div class="container">
+    <h2>Gallery</h2>
+
+    <!-- Tab Buttons -->
+    <div class="gallery-tabs">
+      <button class="tab-btn active" data-tab="photoshoot">Photoshoot</button>
+      <button class="tab-btn" data-tab="soothravakyam">Soothravakyam</button>
+      <button class="tab-btn" data-tab="ad1">Ad 1</button>
+      <button class="tab-btn" data-tab="ad2">Ad 2</button>
+      <button class="tab-btn" data-tab="ad3">Ad 3</button>
+      <button class="tab-btn" data-tab="cleanshave">Clean Shave</button>
+    </div>
+
+    <!-- Tab Content -->
+    <div class="gallery-content">
+      <div class="tab-panel active" id="photoshoot">
+        <!-- 4 film stills -->
+        <div class="gallery-grid">
+          <div class="gallery-item" style="background-image: url('images/gallery/Cigg_1.jpg');"></div>
+          <div class="gallery-item" style="background-image: url('images/gallery/Cigg_2.jpg'); background-position: center 30%;"></div>
+          <div class="gallery-item" style="background-image: url('images/gallery/Cigg_3.jpg');"></div>
+          <div class="gallery-item" style="background-image: url('images/gallery/Cigg_4.jpg');"></div>
         </div>
-    </section>
+      </div>
+
+      <div class="tab-panel" id="soothravakyam">
+        <!-- 4 ad stills -->
+        <div class="gallery-grid">
+          <div class="gallery-item" style="background-image: url('images/gallery/sv_1.png'); background-position: 40% center;"></div>
+          <div class="gallery-item" style="background-image: url('images/gallery/sv_2.png'); background-position: center 2%;"></div>
+          <div class="gallery-item" style="background-image: url('images/gallery/sv_3.png');"></div>
+          <div class="gallery-item" style="background-image: url('images/gallery/sv_4.png');"></div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="ad1">
+        <!-- 4 photoshoot images -->
+        <div class="gallery-grid">
+          <div class="gallery-item" style="background-image: url('images/gallery/Mango_1.jpg');"></div>
+          <div class="gallery-item" style="background-image: url('images/gallery/Mango_2.jpg'); background-position: center 33%;"></div>
+          <div class="gallery-item" style="background-image: url('images/gallery/Mango_3.jpg'); background-position: center 40%;"></div>
+          <div class="gallery-item" style="background-image: url('images/gallery/Mango_4.jpg'); background-position: center 40%;"></div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="ad2">
+        <!-- 4 stage play images -->
+        <div class="gallery-grid">
+          <div class="gallery-item" style="background-image: url('images/gallery/Naseef_01.jpeg'); background-position: 60% center;"></div>
+          <div class="gallery-item" style="background-image: url('images/gallery/Naseef_02.jpeg'); background-position: center 45%;"></div>
+          <div class="gallery-item" style="background-image: url('images/gallery/Naseef_03.jpeg');"></div>
+          <div class="gallery-item" style="background-image: url('images/gallery/Naseef_04.jpg'); background-position: center 15%;"></div>
+        </div>
+      </div>
+
+	<div class="tab-panel" id="ad3">
+        <!-- 4 photoshoot images -->
+        <div class="gallery-grid">
+          <div class="gallery-item" style="background-image: url('images/gallery/Swing_1.jpeg'); background-position: 80% center"></div>
+          <div class="gallery-item" style="background-image: url('images/gallery/Swing_2.jpeg');"></div>
+          <div class="gallery-item" style="background-image: url('images/gallery/Swing_3.jpeg'); background-position: 70% center;"></div>
+          <div class="gallery-item" style="background-image: url('images/gallery/Swing_4.jpeg'); background-position: center 20%;"></div>
+        </div>
+      </div>
+
+<div class="tab-panel" id="cleanshave">
+        <!-- 4 photoshoot images -->
+        <div class="gallery-grid">
+          <div class="gallery-item" style="background-image: url('images/gallery/Naseef_CS_01.jpg');"></div>
+          <div class="gallery-item" style="background-image: url('images/gallery/Naseef_CS_02.jpg');"></div>
+          <div class="gallery-item" style="background-image: url('images/gallery/Naseef_CS_03.jpg'); background-position: center 2%;"></div>
+          <div class="gallery-item" style="background-image: url('images/gallery/Naseef_CS_04.jpg'); background-position: center 18%;"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+	<!-- End of Gallery -->
 
     <section id="contact" class="contact-section">
         <div class="container">
@@ -1013,6 +1261,13 @@
 	<button class="back-to-top" onclick="scrollToTop()">
         	<i class="fas fa-arrow-up"></i>
     	</button>
+	<div id="lightbox" class="lightbox">
+  		<span class="lightbox-close">&times;</span>
+		<span class="lightbox-prev">&#10094;</span>
+  		<span class="lightbox-next">&#10095;</span>
+  		<img class="lightbox-img" src="" alt="Expanded view">
+	</div>
+
 
     <!-- Swiper JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
@@ -1110,7 +1365,6 @@
   // expose function for button onclick (or set an event listener)
   window.scrollToTop = scrollToTop;
 
-
 	// Scroll animations
     	const observerOptions = {
        		threshold: 0.1,
@@ -1127,11 +1381,71 @@
     	}, observerOptions);
 
     	// Target elements (add 'animate-on-scroll' class to these in HTML)
-    	document.querySelectorAll('.contact-card').forEach(el => {
+    	document.querySelectorAll('').forEach(el => {
         	observer.observe(el);
     	});
+
+	// Gallery updated code
+	const tabButtons = document.querySelectorAll('.tab-btn');
+  const tabPanels = document.querySelectorAll('.tab-panel');
+
+  tabButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Remove active classes
+      tabButtons.forEach(b => b.classList.remove('active'));
+      tabPanels.forEach(panel => panel.classList.remove('active'));
+
+      // Add active to clicked tab and corresponding panel
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+    });
+  });
+	// END of gallery updated code
+
+	//Light box
+	const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.querySelector('.lightbox-img');
+  const closeBtn = document.querySelector('.lightbox-close');
+  const prevBtn = document.querySelector('.lightbox-prev');
+  const nextBtn = document.querySelector('.lightbox-next');
+
+  const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
+  let currentIndex = 0;
+
+  function showLightbox(index) {
+    const bg = galleryItems[index].style.backgroundImage;
+    const url = bg.slice(5, -2);
+    lightboxImg.src = url;
+    lightbox.classList.add('show');
+    currentIndex = index;
+  }
+
+  galleryItems.forEach((item, index) => {
+    item.addEventListener('click', () => showLightbox(index));
+  });
+
+  closeBtn.addEventListener('click', () => lightbox.classList.remove('show'));
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) lightbox.classList.remove('show');
+  });
+
+  prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+    showLightbox(currentIndex);
+  });
+
+  nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % galleryItems.length;
+    showLightbox(currentIndex);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('show')) return;
+    if (e.key === 'ArrowLeft') prevBtn.click();
+    if (e.key === 'ArrowRight') nextBtn.click();
+    if (e.key === 'Escape') closeBtn.click();
+  });
+	//END of lightbox
     </script>
 </body>
 </html>
-
-
