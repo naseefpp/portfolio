@@ -199,7 +199,7 @@
 		animation: fadeInUp 1s ease-out 0.4s both;
         }
         .cta {
-            background: black;
+            background: #222222;
             color: white;
             padding: 1rem 2rem;
             text-decoration: none;
@@ -230,23 +230,28 @@
         .swiper {
             width: 100%;
             height: 100%;
+	    justify-content: center;
+            align-items: center;
         }
         .swiper-slide {
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-shrink: 0;
         }
         .featured-card {
-            width: 280px; /* Fixed width for portrait feel */
-            height: 420px; /* Portrait ratio (2:3) */
+            width: auto; /* Fixed width for portrait feel */
+            height: 400px; /* Portrait ratio (2:3) */
             position: relative;
             overflow: hidden;
             border-radius: 10px;
+            box-shadow: 0 2px 3px rgba(0,0,0,0.2);
             transition: box-shadow 0.3s, transform 0.3s;
+		margin: 1.5rem;
         }
         .featured-card:hover {
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-            transform: scale(1.05);
+            box-shadow: 0 8px 12px rgba(0,0,0,0.2);
+            transform: scale(1.03);
         }
         .featured-card img {
             width: 100%;
@@ -259,7 +264,7 @@
             left: 0;
             right: 0;
             background: linear-gradient(transparent, rgba(0,0,0,0.8));
-            padding: 2rem;
+            padding: 1rem;
             color: white;
         }
         .featured-card h3 {
@@ -277,6 +282,7 @@
     position: relative; /* Allows pseudo-elements */
     width: 100%;
     height: 100%;
+    overflow: hidden;
 }
 .featured-swiper::before {
     content: '';
@@ -299,6 +305,11 @@
     background: linear-gradient(to left, white 10%, transparent 100%); /* Right fade */
     z-index: 2;
     pointer-events: none;
+}
+@media (min-width: 1024px) {
+  .featured-swiper .swiper-slide {
+    width: calc((100% - 40px) / 3);
+  }
 }
         /* Custom Swiper Arrows/Pagination - Black/Grey Theme */
         .swiper-button-next, .swiper-button-prev {
@@ -326,7 +337,7 @@
             background: #000;
         }
         .bio {
-            padding: 5rem 0;
+            padding: 6rem 0;
             background: #f9f9f9;
             position: relative;
         }
@@ -345,6 +356,7 @@
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
             align-items: start;
+		justify-items: center;
         }
         .bio-image {
             width: 100%;
@@ -582,7 +594,7 @@
             border-radius: 50%;
             cursor: pointer;
             display: none;
-            z-index: 1000;
+            z-index: 3000;
             transition: background 0.3s;
         }
         .back-to-top.show {
@@ -612,8 +624,8 @@
         background: #fff;
     }
     .cta {
-        background: #fff;
-        color: #000;
+        background: #222;
+        color: #fff;
     }
     .cta:hover {
         background: #ccc;
@@ -632,7 +644,7 @@
         background: linear-gradient(to left, #1a1a1a 10%, transparent 100%);
     }
     .featured-card:hover {
-        box-shadow: 0 8px 25px rgba(255,255,255,0.1);
+        box-shadow: 0 8px 12px rgba(255,255,255,0.1);
     }
     .featured-overlay {
         color: #e0e0e0;
@@ -776,8 +788,8 @@
             nav ul.active { right: 0; }
             nav ul li { margin: 1rem 0; }
 		nav ul li a { color: white; }
-            .bio .container { grid-template-columns: 1fr; gap: 2rem; }
-            .bio-content { text-align: left; }
+            .bio .container { grid-template-columns: 1fr; gap: 2rem; justify-items: left; }
+            .bio-content { text-align: left; margin-left: 1.2rem; }
             .bio-content li { justify-content: flex-start; text-align: left; word-break: normal; }
             .contact-card {
                 flex-direction: column;
@@ -790,14 +802,14 @@
             .footer-icons { flex-direction: column; gap: 1rem; }
             @media (min-width: 480px) { .footer-icons { flex-direction: row; } }
             .featured-card {
-                width: 280px;
-                height: 420px; /* Same portrait on mobile */
+                width: auto;
+                height: 400px; /* Same portrait on mobile */
             }
             .featured-swiper {
-                padding: 0 20px; /* Space for partial views */
+                padding: 0 0px; /* Space for partial views */
             }
             .swiper-pagination {
-                bottom: -40px;
+                bottom: -10px;
             }
         }
     </style>
@@ -847,7 +859,7 @@
                                 <img src="images/featured-soothravakyam-poster.jpg" alt="Soothravakyam Poster">
                                 <div class="featured-overlay">
                                     <h3>Soothravakyam (2025)</h3>
-                                    <p>Title Role: Akhil<br>Dir. Eugien Jos Chirammel</p>
+                                    <p>Title Role<br>Movie</p>
                                 </div>
                             </div>
                         </a>
@@ -858,7 +870,7 @@
                                 <img src="images/featured-favorite-spot-still.jpg" alt="Favorite Spot Still">
                                 <div class="featured-overlay">
                                     <h3>Favorite Spot (2025)</h3>
-                                    <p>Short Film<br>Lead Role</p>
+                                    <p>Title Role<br>Short Film</p>
                                 </div>
                             </div>
                         </a>
@@ -880,7 +892,7 @@
                                 <img src="images/featured-soothravakyam-poster.jpg" alt="Soothravakyam Poster">
                                 <div class="featured-overlay">
                                     <h3>Soothravakyam (2025)</h3>
-                                    <p>Title Role: Akhil<br>Dir. Eugien Jos Chirammel</p>
+                                    <p>Title Role<br>Movie</p>
                                 </div>
                             </div>
                         </a>
@@ -891,7 +903,7 @@
                                 <img src="images/featured-favorite-spot-still.jpg" alt="Favorite Spot Still">
                                 <div class="featured-overlay">
                                     <h3>Favorite Spot (2025)</h3>
-                                    <p>Short Film<br>Lead Role</p>
+                                    <p>Title Role<br>Short Film</p>
                                 </div>
                             </div>
                         </a>
@@ -994,20 +1006,19 @@
             <p class="copyright">© 2025 Naseef P.P. All rights reserved.</p>
         </div>
     </footer>
+	</div>
+	</div>
 
-    <button class="back-to-top" onclick="scrollToTop()">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-	
-	</div>
-	</div>
+	<button class="back-to-top" onclick="scrollToTop()">
+        	<i class="fas fa-arrow-up"></i>
+    	</button>
 
     <!-- Swiper JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
-        // Initialize Swiper
+        // Initialize Swiper with breakpoints
         const swiper = new Swiper('.featured-swiper', {
-            slidesPerView: 1,
+            slidesPerView: 1.2,
             spaceBetween: 20,
             loop: true,
             grabCursor: true,
@@ -1052,19 +1063,52 @@
             document.querySelector('#teasers').scrollIntoView({ behavior: 'smooth' });
         });
 
-        // Back to top button
-        window.onscroll = function() {
-            const btn = document.querySelector('.back-to-top');
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                btn.classList.add('show');
-            } else {
-                btn.classList.remove('show');
-            }
-        };
-        function scrollToTop() {
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
-        }
+  // get references
+  const btn = document.querySelector('.back-to-top');
+  const scrollContainer = document.querySelector('.parallax'); // your scrollable element
+
+  // show/hide based on scroll of the container
+  function handleScroll() {
+  if (!scrollContainer) return;
+
+  const scrollTop = scrollContainer.scrollTop;
+  const scrollHeight = scrollContainer.scrollHeight;
+  const clientHeight = scrollContainer.clientHeight;
+
+  const atTop = scrollTop === 0;
+  const atBottom = scrollTop + clientHeight >= scrollHeight - 5; // small tolerance
+
+  if (atTop) {
+    btn.classList.remove('show'); // hide at very top
+  } else if (atBottom) {
+    btn.classList.add('show'); // show only when bottom reached
+  }
+  // otherwise do nothing - keeps last state
+}
+
+  // attach listener
+  if (scrollContainer) {
+    scrollContainer.addEventListener('scroll', handleScroll, { passive: true });
+    // run once on load in case the page is already scrolled
+    handleScroll();
+  } else {
+    // fallback to window if .parallax missing
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+  }
+
+  // scroll-to-top: scroll the container smoothly if present, otherwise window
+  function scrollToTop() {
+    if (scrollContainer) {
+      scrollContainer.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+
+  // expose function for button onclick (or set an event listener)
+  window.scrollToTop = scrollToTop;
+
 
 	// Scroll animations
     	const observerOptions = {
