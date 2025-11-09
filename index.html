@@ -1365,26 +1365,6 @@
   // expose function for button onclick (or set an event listener)
   window.scrollToTop = scrollToTop;
 
-	// Scroll animations
-    	const observerOptions = {
-       		threshold: 0.1,
-        	rootMargin: '0px 0px -50px 0px'  /* Trigger 50px before view */
-    	};
-
-    	const observer = new IntersectionObserver((entries) => {
-        	entries.forEach(entry => {
-        	    if (entry.isIntersecting) {
-        	        entry.target.classList.add('animate-on-scroll');
-        	        observer.unobserve(entry.target);  /* Run once */
-       	     	}
-        	});
-    	}, observerOptions);
-
-    	// Target elements (add 'animate-on-scroll' class to these in HTML)
-    	document.querySelectorAll('').forEach(el => {
-        	observer.observe(el);
-    	});
-
 	// Gallery updated code
 	const tabButtons = document.querySelectorAll('.tab-btn');
   const tabPanels = document.querySelectorAll('.tab-panel');
