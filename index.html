@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Naseef P P - Actor</title>
+	<link rel="icon" type="image/x-icon" href="images/favicon_io/favicon.ico">
+	<link rel="icon" type="image/png" sizes="32x32" href="images/favicon_io/favicon-32x32.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="images/favicon_io/apple-touch-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue+Condensed:wght@300;500;700&display=swap" rel="stylesheet">
@@ -1105,7 +1108,7 @@
     <section id="about" class="bio">
         <div class="container">
             <div class="bio-content">
-                <h2>About Naseef</h2>
+                <h2>About Me</h2>
                 <ul>
                     <li><i class="fas fa-calendar-alt"></i> Age Range: 18-28</li>
                     <li><i class="fas fa-ruler-vertical"></i> Height: 170 cm</li>
@@ -1382,50 +1385,97 @@
   });
 	// END of gallery updated code
 
-	//Light box
-	const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.querySelector('.lightbox-img');
-  const closeBtn = document.querySelector('.lightbox-close');
-  const prevBtn = document.querySelector('.lightbox-prev');
-  const nextBtn = document.querySelector('.lightbox-next');
+	// Lightbox with swipe support
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.querySelector('.lightbox-img');
+const closeBtn = document.querySelector('.lightbox-close');
+const prevBtn = document.querySelector('.lightbox-prev');
+const nextBtn = document.querySelector('.lightbox-next');
 
-  const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
-  let currentIndex = 0;
+const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
+let currentIndex = 0;
+let lightboxActive = false;
 
-  function showLightbox(index) {
-    const bg = galleryItems[index].style.backgroundImage;
-    const url = bg.slice(5, -2);
-    lightboxImg.src = url;
-    lightbox.classList.add('show');
-    currentIndex = index;
+// Show image in lightbox
+function showLightbox(index, pushState = true) {
+  const bg = galleryItems[index].style.backgroundImage;
+  const url = bg.slice(5, -2);
+  lightboxImg.src = url;
+  lightbox.classList.add('show');
+  currentIndex = index;
+  lightboxActive = true;
+
+  if (pushState) {
+    history.pushState({ lightbox: true }, '', '#lightbox');
   }
+}
 
-  galleryItems.forEach((item, index) => {
-    item.addEventListener('click', () => showLightbox(index));
-  });
+// Close lightbox
+function closeLightbox(popState = false) {
+  lightbox.classList.remove('show');
+  lightboxActive = false;
 
-  closeBtn.addEventListener('click', () => lightbox.classList.remove('show'));
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) lightbox.classList.remove('show');
-  });
+  if (!popState && history.state?.lightbox) {
+    history.back();
+  }
+}
 
-  prevBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
-    showLightbox(currentIndex);
-  });
+// Click to open
+galleryItems.forEach((item, index) => {
+  item.addEventListener('click', () => showLightbox(index));
+});
 
-  nextBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % galleryItems.length;
-    showLightbox(currentIndex);
-  });
+// Close actions
+closeBtn.addEventListener('click', () => closeLightbox());
+lightbox.addEventListener('click', (e) => {
+  if (e.target === lightbox) closeLightbox();
+});
 
-  document.addEventListener('keydown', (e) => {
-    if (!lightbox.classList.contains('show')) return;
-    if (e.key === 'ArrowLeft') prevBtn.click();
-    if (e.key === 'ArrowRight') nextBtn.click();
-    if (e.key === 'Escape') closeBtn.click();
-  });
-	//END of lightbox
+// Navigation buttons
+prevBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+  showLightbox(currentIndex, false);
+});
+nextBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % galleryItems.length;
+  showLightbox(currentIndex, false);
+});
+
+// Keyboard support
+document.addEventListener('keydown', (e) => {
+  if (!lightboxActive) return;
+  if (e.key === 'ArrowLeft') prevBtn.click();
+  if (e.key === 'ArrowRight') nextBtn.click();
+  if (e.key === 'Escape') closeLightbox();
+});
+
+// Swipe support
+let touchStartX = 0;
+let touchEndX = 0;
+
+lightbox.addEventListener('touchstart', (e) => {
+  touchStartX = e.changedTouches[0].screenX;
+});
+lightbox.addEventListener('touchend', (e) => {
+  touchEndX = e.changedTouches[0].screenX;
+  handleSwipe();
+});
+
+function handleSwipe() {
+  const threshold = 50;
+  if (touchEndX - touchStartX > threshold) {
+    prevBtn.click();
+  } else if (touchStartX - touchEndX > threshold) {
+    nextBtn.click();
+  }
+}
+
+// Back button closes lightbox
+window.addEventListener('popstate', (e) => {
+  if (lightboxActive && !e.state?.lightbox) {
+    closeLightbox(true);
+  }
+});
     </script>
 </body>
 </html>
