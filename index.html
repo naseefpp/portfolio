@@ -1,1483 +1,290 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Naseef P P - Actor</title>
-	<link rel="icon" type="image/x-icon" href="images/favicon_io/favicon.ico">
-	<link rel="icon" type="image/png" sizes="32x32" href="images/favicon_io/favicon-32x32.png">
-	<link rel="apple-touch-icon" sizes="180x180" href="images/favicon_io/apple-touch-icon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue+Condensed:wght@300;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Helvetica Neue Condensed', Arial, sans-serif;
-            background-color: white;
-            color: black;
-            line-height: 1.6;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: white;
-            z-index: 1000;
-            padding: 1rem 0;
-            border-bottom: 1px solid #eee;
-            height: 3rem;
-        }
-        nav .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        nav ul {
-            list-style: none;
-            display: flex;
-            margin: 0;
-            padding: 0;
-        }
-        nav ul li {
-            margin-left: 2rem;
-        }
-        nav ul li a {
-            text-decoration: none;
-            color: black;
-            font-weight: 500;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            transition: text-decoration 0.3s;
-        }
-        nav ul li a:hover {
-            text-decoration: underline;
-        }
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background: black;
-            margin: 3px 0;
-            transition: 0.3s;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Naseef P P - Actor</title>
 
-	/* Parallax container */
-        .parallax {
-            perspective: 1px;
-            height: 100vh;
-            overflow-x: hidden;
-            overflow-y: auto;
-            transform-style: preserve-3d;
-        }
-        .parallax-layer {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-        }
-        .parallax-back {
-            transform: translateZ(-1px) scale(2);
-            background-image: url('images/hero-bg-image.jpg');
-            background-size: cover;
-            background-position: 25% 33%;
-		animation: heroFadeIn 1.5s ease-out;
-		animation-fill-mode: both;
-        }
-        .parallax-base {
-            transform: translateZ(0);
-        }
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="images/favicon_io/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon_io/favicon-32x32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon_io/apple-touch-icon.png" />
 
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            padding-top: 80px;
-            box-sizing: border-box;
-            /* background-image: url('images/hero-bg-image.jpg'); */
-            background-size: cover;
-		background-position: 25% center;
-            background-attachment: fixed;
-		/* animation: heroFadeIn 1.5s ease-out; */
-		animation-fill-mode: both;
-		/* animation-fill-mode: forwards; */
-        }
-	.hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 10%, transparent 80%); /* Semi-transparent black overlay for depth */
-            z-index: 1;
-        }
-        .hero-content {
-            z-index: 2;
-            width: 100%;
-		max-width: 600px;
-            padding: 2rem;
-		padding-bottom: 5rem;
-		animation: fadeInUp 1s ease-out; /* Fade-in animation */
-		animation-fill-mode: both;
-		margin-left: 30%;
-		transition: margin-left 1s ease;
-            border-radius: 10px 0 0 10px; /* Rounded left for right-align */
-        }
-	@keyframes heroFadeIn {
-    		from {
-        		opacity: 0;
-        		background-position: 25% 30%; /* Slight upward shift for parallax feel */
-			transform: translateZ(-1px) scale(2.1);
-    		}
-    		to {
-        		opacity: 1;
-        		background-position: 25% 33%; /* Ends centered */
-			transform: translateZ(-1px) scale(2);
-    		}
-	}
-	@keyframes fadeInUp {
-            from {
-		opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-	.animate-on-scroll {
- 	   opacity: 0;
- 	   animation: fadeInUp 0.8s ease-out forwards;
-	}
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue+Condensed:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
-        .headshot {
-            width: 250px;
-            height: 300px;
-            background: #ddd;
-            margin: 0 auto 2rem;
-            border-radius: 10px;
-            background-image: url('images/hero-headshot.jpg');
-            background-size: cover;
-            background-position: center;
-            transition: transform 0.3s;
-        }
-        .headshot:hover {
-            transform: scale(1.05);
-        }
-        .hero h1 {
-            font-size: 5rem;
-            font-weight: 300;
-            margin: 0 0 -1.5rem;
-		color: white;
-            letter-spacing: 0.1em;
-		text-transform: uppercase;
-		animation: fadeInUp 1s ease-out 0.2s both;
-		white-space: nowrap;
-		transition: font-size 1s ease;
-        }
-        .tagline {
-            font-size: 1.5rem;
-            font-weight: 500;
-            margin: 0 0 1rem 0;
-		color: white;
-            opacity: 0.8;
-		animation: fadeInUp 1s ease-out 0.4s both;
-        }
-        .cta {
-            background: #222222;
-            color: white;
-            padding: 1rem 2rem;
-            text-decoration: none;
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            border-radius: 5px;
-            transition: background 0.3s, transform 0.3s;
-            display: inline-block;
-		animation: fadeInUp 1s ease-out 0.6s both;
-		align-self: flex-end;
-        }
-        .cta:hover {
-            background: #333;
-            transform: translateY(-2px);
-        }
-        .teasers {
-            padding: 5rem 0;
-            background: white;
-        }
-        .teasers h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 300;
-            margin-bottom: 3rem;
-            letter-spacing: 0.1em;
-        }
-        .swiper {
-            width: 100%;
-            height: 100%;
-	    justify-content: center;
-            align-items: center;
-        }
-        .swiper-slide {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-shrink: 0;
-        }
-        .featured-card {
-            width: auto; /* Fixed width for portrait feel */
-            height: 400px; /* Portrait ratio (2:3) */
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 2px 3px rgba(0,0,0,0.2);
-            transition: box-shadow 0.3s, transform 0.3s;
-		margin: 1.5rem;
-        }
-        .featured-card:hover {
-            box-shadow: 0 8px 12px rgba(0,0,0,0.2);
-            transform: scale(1.03);
-        }
-        .featured-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Keeps portrait without crop */
-        }
-        .featured-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 60%, transparent 100%);
-            padding: 1rem;
-            color: white;
-        }
-        .featured-card h3 {
-            font-size: 1.3rem;
-            margin: 0 0 0.5rem;
-            text-align: center;
-        }
-        .featured-card p {
-            font-size: 0.9rem;
-            margin: 0;
-            text-align: center;
-            opacity: 0.9;
-		text-shadow: 0 1px 3px rgba(0,0,0,0.9);
-        }
-	.featured-swiper {
-    position: relative; /* Allows pseudo-elements */
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-.featured-swiper::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100px; /* Fade width—adjust for more/less */
-    height: 100%;
-    background: linear-gradient(to right, white 10%, transparent 100%); /* Left fade */
-    z-index: 2;
-    pointer-events: none; /* Allows clicks through */
-}
-.featured-swiper::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100px; /* Same width */
-    height: 100%;
-    background: linear-gradient(to left, white 10%, transparent 100%); /* Right fade */
-    z-index: 2;
-    pointer-events: none;
-}
-@media (min-width: 1024px) {
-  .featured-swiper .swiper-slide {
-    width: calc((100% - 40px) / 3);
-  }
-}
-        /* Custom Swiper Arrows/Pagination - Black/Grey Theme */
-        .swiper-button-next, .swiper-button-prev {
-            color: #000 !important; /* Black arrows */
-    		width: 40px;
-    		height: 40px;
-    		display: flex;
-    		align-items: center;
-    		justify-content: center;
-		font-size: 0;
-        }
-        .swiper-button-next::after, .swiper-button-prev::after {
-            font-size: 10px !important;
-		font-weight: bold;
-        }
-        .swiper-pagination {
-            position: relative;
-		margin-top: 2rem;
-		text-align: center;
-        }
-        .swiper-pagination-bullet {
-            background: #000; /* Black dots */
-        }
-        .swiper-pagination-bullet-active {
-            background: #000;
-        }
-        .bio {
-            padding: 6rem 0;
-            background: #f9f9f9;
-            position: relative;
-        }
-        .bio::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 1px;
-            background: black;
-        }
-        .bio .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: start;
-		justify-items: center;
-        }
-        .bio-image {
-            width: 100%;
-            height: 400px;
-            background: #ddd;
-            border-radius: 10px;
-            background-image: url('images/bio-versatility-still.jpg');
-            background-size: cover;
-            background-position: 80% 5%;
-            transition: transform 0.3s;
-        }
-        .bio-image:hover {
-            transform: scale(1.02);
-        }
-        .bio-content h2 {
-            font-size: 2rem;
-            font-weight: 300;
-            margin-bottom: 2rem;
-            letter-spacing: 0.1em;
-        }
-        .bio-content ul {
-            list-style: none;
-            padding: 0;
-        }
-        .bio-content li {
-            margin: 0 0 1rem;
-            font-size: 1rem;
-            opacity: 0.8;
-            display: flex;
-            align-items: baseline;
-            word-break: keep-all;
-            text-align: left;
-            transition: transform 0.3s;
-        }
-        .bio-content li:hover {
-            transform: translateX(4px);
-        }
-        .bio-content li i {
-            margin-right: 0.5rem;
-            width: 1rem;
-            opacity: 0.5;
-            flex-shrink: 0;
-            transition: color 0.3s;
-        }
-        .bio-content li:hover i {
-            color: #333;
-        }
-        .certificate {
-            padding: 3rem 0;
-            background: white;
-            text-align: center;
-        }
-        .certificate h2 {
-            font-size: 2rem;
-            font-weight: 300;
-            margin-bottom: 1rem;
-            letter-spacing: 0.1em;
-        }
-        .certificate img {
-            max-width: 600px;
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            border: 1px solid #eee;
-            transition: transform 0.3s;
-        }
-        .certificate img:hover {
-            transform: scale(1.02);
-        }
-        .certificate p {
-            opacity: 0.7;
-            font-size: 1rem;
-            margin-top: 1rem;
-        }
-        .gallery-tease {
-            padding: 5rem 0;
-            background: #f9f9f9;
-            text-align: center;
-        }
-        .gallery-tease h2 {
-            font-size: 2.5rem;
-            font-weight: 300;
-            margin-bottom: 3rem;
-            letter-spacing: 0.1em;
-        }
-	.gallery-grid {
-  		display: grid;
-  		gap: 0.5rem;
-		margin-bottom: 2rem;
-	}
-        .gallery-item {
-            /* height: 200px; */
-            background: #ddd;
-            border-radius: 10px;
-            background-size: cover;
-            background-position: center;
-            transition: transform 0.3s, border 0.3s;
-        }
-	/* Landscape layout: 3-column, 2-row collage */
-@media (min-width: 769px) {
-  .gallery-grid {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 300px);
-  }
-
-  .gallery-item:nth-child(1) {
-    grid-column: 1;
-    grid-row: 1 / span 2;
-  }
-
-  .gallery-item:nth-child(2) {
-    grid-column: 2 / span 2;
-    grid-row: 1;
-  }
-
-  .gallery-item:nth-child(3) {
-    grid-column: 2;
-    grid-row: 2;
-  }
-
-  .gallery-item:nth-child(4) {
-    grid-column: 3;
-    grid-row: 2;
-  }
-}
-
-/* Portrait layout: 2-column, 3-row collage */
-@media (max-width: 768px) {
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 200px);
-  }
-
-  .gallery-item:nth-child(2) {
-    grid-column: 1 / span 2;
-    grid-row: 1;
-  }
-
-  .gallery-item:nth-child(1) {
-    grid-column: 1;
-    grid-row: 2 / span 2;
-  }
-
-  .gallery-item:nth-child(3) {
-    grid-column: 2;
-    grid-row: 2;
-  }
-
-  .gallery-item:nth-child(4) {
-    grid-column: 2;
-    grid-row: 3;
-  }
-}
-        .gallery-item:hover {
-            transform: scale(1.01);
-        }
-        .explore-btn {
-            background: black;
-            color: white;
-            padding: 1rem 2rem;
-            text-decoration: none;
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            border-radius: 5px;
-            transition: background 0.3s, transform 0.3s;
-        }
-        .explore-btn:hover {
-            background: #333;
-            transform: translateY(-2px);
-        }
-
-	/* Updated Gallery section */
-
-.gallery-tabs {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
-  flex-wrap: wrap;
-}
-.tab-btn {
-  background: none;
-  border: none;
-  color: #555;
-  font-weight: 600;
-  position: relative;
-  padding: 0.6rem 1.2rem;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-.tab-btn::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background: #555;
-  transition: all 0.3s ease;
-}
-.tab-btn:hover::after,
-.tab-btn.active::after {
-  width: 100%;
-  left: 0;
-}
-
-.tab-panel {
-  display: none;
-  animation: galleryfadeIn 0.5s ease-out;
-}
-.tab-panel.active {
-  display: block;
-}
-
-@keyframes galleryfadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-	.lightbox {
-  display: none;
-  position: fixed;
-  z-index: 4000;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.9);
-  justify-content: center;
-  align-items: center;
-  cursor: zoom-out;
-  transition: opacity 0.3s ease;
-}
-.lightbox.show {
-  display: flex;
-}
-.lightbox-img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(255,255,255,0.1);
-}
-.lightbox-close {
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
-  font-size: 2rem;
-  color: white;
-  cursor: pointer;
-  z-index: 4100;
-}
-.lightbox-prev,
-.lightbox-next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 3rem;
-  color: white;
-  cursor: pointer;
-  z-index: 4100;
-  padding: 0 1rem;
-  user-select: none;
-}
-.lightbox-prev { left: 1rem; }
-.lightbox-next { right: 1rem; }
-
-.lightbox-prev:hover,
-.lightbox-next:hover {
-  color: #ccc;
-}
-
-	/* END of Gallery section */
-
-        .contact-section {
-            padding: 5rem 0;
-            background: white;
-        }
-        .contact-card {
-            background: #f0f0f0;
-            border: 2px solid #ddd;
-            border-radius: 10px;
-            padding: 2rem;
-            display: flex;
-            align-items: stretch;
-            gap: 2rem;
-            min-height: 250px;
-        }
-        .card-text {
-            flex: 1;
-            text-align: left;
-        }
-        .card-text h2 {
-            font-size: 2rem;
-            font-weight: 300;
-            margin-bottom: 0.5rem;
-            letter-spacing: 0.1em;
-            opacity: 0.8;
-        }
-        .card-text .underline {
-            width: 100px;
-            height: 1px;
-            background: black;
-            margin-bottom: 2rem;
-            opacity: 0.8;
-        }
-        .card-text ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .card-text li {
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-            opacity: 0.8;
-            display: flex;
-            align-items: baseline;
-            transition: transform 0.3s;
-        }
-        .card-text li:hover {
-            transform: translateX(4px);
-        }
-        .card-text li i {
-            margin-right: 0.5rem;
-            width: 1rem;
-            color: black;
-            opacity: 0.8;
-            flex-shrink: 0;
-            font-size: 1.2rem;
-            transition: color 0.3s;
-        }
-        .card-text li:hover i {
-            color: #333;
-        }
-        .card-text a {
-            text-decoration: none;
-            color: black;
-            transition: opacity 0.3s;
-        }
-        .card-text a:hover {
-            opacity: 1;
-		color: #333;
-        }
-        .card-image {
-            width: 350px;
-            height: 250px;
-            background-image: url('images/contact-casual-headshot.png');
-            background-size: contain;
-		background-repeat: no-repeat;
-            background-position: 70% center;
-            flex-shrink: 0;
-        }
-        footer {
-            background: black;
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
-        }
-        .footer-icons {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
-        }
-        .footer-icons a {
-            color: white;
-            font-size: 1.5rem;
-            transition: color 0.3s, transform 0.3s;
-        }
-        .footer-icons a:hover {
-            color: #ccc;
-            transform: rotate(5deg);
-        }
-        .copyright {
-            opacity: 0.7;
-            font-size: 0.9rem;
-        }
-	a {
- 		text-decoration: none;
-		color: inherit;
-	}
-        .back-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background: black;
-            color: white;
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: none;
-            z-index: 3000;
-            transition: background 0.3s;
-        }
-        .back-to-top.show {
-            display: block;
-        }
-        .back-to-top:hover {
-            background: #333;
-        }
-
-		@media (prefers-color-scheme: dark) {
-    body {
-        background-color: #121212;
-        color: #e0e0e0;
-    }
-    nav {
-        background: #1e1e1e;
-        border-bottom: 1px solid #333;
-    }
-    nav ul li a {
-        color: #e0e0e0;
-    }
-    nav ul li a:hover {
-        text-decoration: underline;
-        color: #fff;
-    }
-    .hamburger span {
-        background: #fff;
-    }
-    .cta {
-        background: #222;
-        color: #fff;
-    }
-    .cta:hover {
-        background: #ccc;
-    }
-    .teasers {
-        background: #1a1a1a;
-    }
-    .teasers h2 {
-        color: #e0e0e0;
-    }
-    .featured-swiper::before,
-    .featured-swiper::after {
-        background: linear-gradient(to right, #1a1a1a 10%, transparent 100%);
-    }
-    .featured-swiper::after {
-        background: linear-gradient(to left, #1a1a1a 10%, transparent 100%);
-    }
-    .featured-card {
-    	box-shadow: 0 2px 3px rgba(255,255,255,0.2);
-     }
-    .featured-card:hover {
-        box-shadow: 0 8px 12px rgba(255,255,255,0.2);
-    }
-    .featured-overlay {
-        color: #e0e0e0;
-    }
-    .featured-card h3,
-    .featured-card p {
-        color: #e0e0e0;
-    }
-    .swiper-button-next, .swiper-button-prev {
-        color: #fff !important;
-    }
-    .swiper-pagination-bullet {
-        background: #fff;
-    }
-    .swiper-pagination-bullet-active {
-        background: #fff;
-    }
-    .bio {
-        background: #1a1a1a;
-    }
-    .bio::before {
-        background: #fff;
-    }
-    .bio-content h2 {
-        color: #e0e0e0;
-    }
-    .bio-content li {
-        color: #e0e0e0;
-    }
-    .bio-content li i {
-        color: #fff;
-    }
-    .bio-content li:hover i {
-        color: #ccc;
-    }
-    .certificate {
-        background: #1a1a1a;
-    }
-    .certificate h2 {
-        color: #e0e0e0;
-    }
-    .certificate p {
-        color: #ccc;
-    }
-    .gallery-tease {
-        background: #1a1a1a;
-    }
-    .gallery-tease h2 {
-        color: #e0e0e0;
-    }
-    .gallery-item:hover {
-        box-shadow: 0 4px 8px rgba(255,255,255,0.1);
-    }
-	.gallery-item {
-  		box-shadow: 0 2px 4px rgba(255, 255, 255, 0.2);
-	}
-	.gallery-tabs {
-  		background: transparent;
-	}
-
-	.tab-btn {
-  		color: #eee;
-	}
-	.tab-btn::after {
-		background: white;
-	}
-    .explore-btn {
-        background: #fff;
-        color: #000;
-    }
-    .explore-btn:hover {
-        background: #ccc;
-    }
-    .contact-section {
-        background: #1a1a1a;
-    }
-    .contact-card {
-        background: #2a2a2a;
-        border: 2px solid #444;
-    }
-    .card-text h2 {
-        color: #e0e0e0;
-    }
-    .card-text .underline {
-        background: #fff;
-    }
-    .card-text li {
-        color: #e0e0e0;
-    }
-    .card-text li i {
-        color: #fff;
-    }
-    .card-text li:hover i {
-        color: #ccc;
-    }
-    .card-text a {
-        color: #e0e0e0;
-    }
-    .card-text a:hover {
-        color: #fff;
-    }
-    footer {
-        background: #0d0d0d;
-    }
-    .footer-icons a {
-        color: #fff;
-    }
-    .footer-icons a:hover {
-        color: #ccc;
-    }
-    .copyright {
-        color: #ccc;
-    }
-    .back-to-top {
-        background: #fff;
-        color: #000;
-    }
-    .back-to-top:hover {
-        background: #ccc;
-    }
-	    }
-
-	@media (max-width: 1200px) {
-		.hero-content {
-			margin-left: 15%;
-		}
-	}
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 3rem; 
-			margin: 0 0 -1rem;}
-		.hero-content { padding: 1rem; 
-				margin-left: 0; }
-            .tagline { font-size: 1.2rem; }
-            .hero { padding-top: 80px;
-			align-items: flex-end;
-			justify-content: center;
-			text-align: center; }
-            .hamburger { display: flex; }
-            nav ul { 
-                position: fixed;
-                top: 80px;
-                right: -100%;
-                width: 100%;
-                height: calc(100vh - 80px);
-                background: black;
-		opacity: 95%;
-                flex-direction: column;
-                justify-content: flex-start;
-                align-items: center;
-                padding-top: 2rem;
-                transition: right 0.3s;
-            }
-            nav ul.active { right: 0; }
-            nav ul li { margin: 1rem 0; }
-		nav ul li a { color: white; }
-            .bio .container { grid-template-columns: 1fr; gap: 2rem; justify-items: left; }
-            .bio-content { text-align: left; margin-left: 1.2rem; }
-            .bio-content li { justify-content: flex-start; text-align: left; word-break: normal; }
-			
-            .contact-card {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            .card-image {
-                width: 100%;
-                height: 250px;
-            }
-            /* .footer-icons { flex-direction: column; gap: 1rem; } */
-            @media (min-width: 480px) { .footer-icons { flex-direction: row; } }
-            .featured-card {
-                width: auto;
-                height: 400px; /* Same portrait on mobile */
-            }
-            .featured-swiper {
-                padding: 0 0px; /* Space for partial views */
-            }
-            .swiper-pagination {
-                bottom: -10px;
-            }
-        }
-    </style>
+  <!-- Site CSS -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <nav>
-        <div class="container">
-            <div class="logo">
-                <h3 style="margin: 0; font-weight: 700;">Naseef P P</h3>
-            </div>
-            <ul id="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#teasers">Filmography</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <!-- <li><a href="#directing">Directing</a></li> -->
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="hamburger" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
-
-	<div class="parallax">
-		<div class="parallax-layer parallax-back"></div>
-		<div class="parallax-layer parallax-base">
-			<section id="home" class="hero">
-	        		<div class="hero-content">
-        			    <h1>Naseef P P</h1>
-        			    <p class="tagline">Actor • Director</p>
-	        		    <a href="#teasers" class="cta">Explore Work</a>
-        			</div>
-			</section>
-
-    <section id="teasers" class="teasers">
-        <div class="container">
-            <h2>Featured Works</h2>
-            <div class="swiper featured-swiper">
-                <div class="swiper-wrapper">
-                    <!-- Slides repeated x2 for loop -->
-                    <div class="swiper-slide">
-                            <div class="featured-card">
-				<a href="https://www.imdb.com/title/tt34335405/" target="_blank" rel="noopener noreferrer">
-                                <img src="images/featured-soothravakyam-poster.jpg" alt="Soothravakyam Poster">
-                                <div class="featured-overlay">
-                                    <h3>Soothravakyam (2025)</h3>
-                                    <p>Title Role<br>Movie</p>
-                                </div>
-				</a>
-                            </div>
-                    </div>
-                    <div class="swiper-slide">
-                            <div class="featured-card">
-				<a href="https://www.youtube.com/watch?v=OAc6fc6zDJc" target="_blank" rel="noopener noreferrer">
-                                <img src="images/featured-favorite-spot-still.jpg" alt="Favorite Spot Still">
-                                <div class="featured-overlay">
-                                    <h3>Favorite Spot (2025)</h3>
-                                    <p>Title Role<br>Short Film</p>
-                                </div>
-				</a>
-                            </div>
-                    </div>
-                    <div class="swiper-slide">
-                            <div class="featured-card">
-				<a href="https://www.instagram.com/reel/DLJ4MwRu1mU/" target="_blank" rel="noopener noreferrer">
-                                <img src="images/featured-saral-homes-ad.jpg" alt="Saral Homes Ad">
-                                <div class="featured-overlay">
-                                    <h3>Saral Homes Ads</h3>
-                                    <p>Recurring Model<br>Commercial Campaign</p>
-                                </div>
-				</a>
-                            </div>
-                    </div>
-                    <div class="swiper-slide">
-                            <div class="featured-card">
-				<a href="https://www.youtube.com/watch?v=q0ZJHnDP7sY" target="_blank" rel="noopener noreferrer">
-                                <img src="images/poster_manaath.jpg" alt="Manaath Poster">
-                                <div class="featured-overlay">
-                                    <h3>Manaath (2022)</h3>
-                                    <p>Direction<br>Short Film</p>
-                                </div>
-				</a>
-                            </div>
-                    </div>
-                    <div class="swiper-slide">
-                            <div class="featured-card">
-				<a href="https://www.youtube.com/watch?v=hODJEWsuwpY" target="_blank" rel="noopener noreferrer">
-                                <img src="images/poster_thamah.jpg" alt="Saral Homes Ad">
-                                <div class="featured-overlay">
-                                    <h3>Thamah: (2023)</h3>
-                                    <p>Direction<br>Short Film</p>
-                                </div>
-				</a>
-                            </div>
-                    </div>
-		    <div class="swiper-slide">
-                            <div class="featured-card">
-				<a href="https://www.youtube.com/watch?v=5O6OqYF0g7I" target="_blank" rel="noopener noreferrer">
-                                <img src="images/poster_priye.jpg" alt="Priye Poster">
-                                <div class="featured-overlay">
-                                    <h3>Priye (2024)</h3>
-                                    <p>Direction<br>Musical Video</p>
-                                </div>
-				</a>
-                            </div>
-                    </div>
-                </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-            </div>
-            <div class="swiper-pagination"></div>
-        </div>
-    </section>
-
-    <section id="about" class="bio">
-        <div class="container">
-            <div class="bio-content">
-                <h2>About Me</h2>
-                <ul>
-                    <li><i class="fas fa-calendar-alt"></i> Age Range: 18-28</li>
-                    <li><i class="fas fa-ruler-vertical"></i> Height: 170 cm</li>
-                    <li><i class="fas fa-weight-hanging"></i> Build: Medium/Slender</li>
-                    <li><i class="fas fa-palette"></i> Hair: Curly, Black</li>
-                    <li><i class="fas fa-eye"></i> Eyes: Dark Brown</li>
-                    <li><i class="fas fa-globe"></i> Languages: English, Malayalam, Hindi, Tamil</li>
-                    <li><i class="fas fa-graduation-cap"></i> Training: Screen Acting Course, Nova Film Institute</li>
-                </ul>
-            </div>
-		<div class="bio-image"></div>
-        </div>
-    </section>
-
-    <section class="certificate">
-        <div class="container">
-            <h2>Screen Acting Course</h2>
-            <img src="images/certificate-nova-acting-course.jpg" alt="Nova Film Institute Certificate">
-            <p>Nova Film Institute, Ernakulam</p>
-        </div>
-    </section>
-
-	
-
-	<!-- New gallery -->
-
-	<section id="gallery" class="gallery-tease">
-  <div class="container">
-    <h2>Gallery</h2>
-
-    <!-- Tab Buttons -->
-    <div class="gallery-tabs">
-      <button class="tab-btn active" data-tab="photoshoot">Photoshoot</button>
-      <button class="tab-btn" data-tab="soothravakyam">Soothravakyam</button>
-      <button class="tab-btn" data-tab="ad1">Ad 1</button>
-      <button class="tab-btn" data-tab="ad2">Ad 2</button>
-      <button class="tab-btn" data-tab="ad3">Ad 3</button>
-      <button class="tab-btn" data-tab="cleanshave">Clean Shave</button>
+  <nav>
+    <div class="container">
+      <div class="logo">
+        <h3 class="site-title">Naseef P P</h3>
+      </div>
+      <ul id="nav-menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#teasers">Filmography</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+  </nav>
 
-    <!-- Tab Content -->
-    <div class="gallery-content">
-      <div class="tab-panel active" id="photoshoot">
-        <!-- 4 film stills -->
-        <div class="gallery-grid">
-          <div class="gallery-item" style="background-image: url('images/gallery/Cigg_1.jpg');"></div>
-          <div class="gallery-item" style="background-image: url('images/gallery/Cigg_2.jpg'); background-position: center 30%;"></div>
-          <div class="gallery-item" style="background-image: url('images/gallery/Cigg_3.jpg');"></div>
-          <div class="gallery-item" style="background-image: url('images/gallery/Cigg_4.jpg');"></div>
+  <div class="parallax">
+    <div class="parallax-layer parallax-back"></div>
+    <div class="parallax-layer parallax-base">
+      <section id="home" class="hero">
+        <div class="hero-content">
+          <h1>Naseef P P</h1>
+          <p class="tagline">Actor • Director</p>
+          <a href="#teasers" class="cta">Explore Work</a>
         </div>
-      </div>
+      </section>
 
-      <div class="tab-panel" id="soothravakyam">
-        <!-- 4 ad stills -->
-        <div class="gallery-grid">
-          <div class="gallery-item" style="background-image: url('images/gallery/sv_1.png'); background-position: 40% center;"></div>
-          <div class="gallery-item" style="background-image: url('images/gallery/sv_2.png'); background-position: center 2%;"></div>
-          <div class="gallery-item" style="background-image: url('images/gallery/sv_3.png');"></div>
-          <div class="gallery-item" style="background-image: url('images/gallery/sv_4.png');"></div>
+      <section id="teasers" class="teasers">
+        <div class="container">
+          <h2>Featured Works</h2>
+          <div class="swiper featured-swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="featured-card">
+                  <a href="https://www.imdb.com/title/tt34335405/" target="_blank" rel="noopener noreferrer">
+                    <img src="images/featured-soothravakyam-poster.jpg" alt="Soothravakyam Poster" />
+                    <div class="featured-overlay">
+                      <h3>Soothravakyam (2025)</h3>
+                      <p>Title Role<br />Movie</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="featured-card">
+                  <a href="https://www.youtube.com/watch?v=OAc6fc6zDJc" target="_blank" rel="noopener noreferrer">
+                    <img src="images/featured-favorite-spot-still.jpg" alt="Favorite Spot Still" />
+                    <div class="featured-overlay">
+                      <h3>Favorite Spot (2025)</h3>
+                      <p>Title Role<br />Short Film</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="featured-card">
+                  <a href="https://www.instagram.com/reel/DLJ4MwRu1mU/" target="_blank" rel="noopener noreferrer">
+                    <img src="images/featured-saral-homes-ad.jpg" alt="Saral Home Ads" />
+                    <div class="featured-overlay">
+                      <h3>Saral Home Ads</h3>
+                      <p>Recurring Model<br />Commercial Campaign</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="featured-card">
+                  <a href="https://www.youtube.com/watch?v=q0ZJHnDP7sY" target="_blank" rel="noopener noreferrer">
+                    <img src="images/poster_manaath.jpg" alt="Manaath Poster" />
+                    <div class="featured-overlay">
+                      <h3>Manaath (2022)</h3>
+                      <p>Direction<br />Short Film</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="featured-card">
+                  <a href="https://www.youtube.com/watch?v=hODJEWsuwpY" target="_blank" rel="noopener noreferrer">
+                    <img src="images/poster_thamah.jpg" alt="Thamah Poster" />
+                    <div class="featured-overlay">
+                      <h3>Thamah (2023)</h3>
+                      <p>Direction<br />Short Film</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="featured-card">
+                  <a href="https://www.youtube.com/watch?v=5O6OqYF0g7I" target="_blank" rel="noopener noreferrer">
+                    <img src="images/poster_priye.jpg" alt="Priye Poster" />
+                    <div class="featured-overlay">
+                      <h3>Priye (2024)</h3>
+                      <p>Direction<br />Musical Video</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+          <div class="swiper-pagination"></div>
         </div>
-      </div>
+      </section>
 
-      <div class="tab-panel" id="ad1">
-        <!-- 4 photoshoot images -->
-        <div class="gallery-grid">
-          <div class="gallery-item" style="background-image: url('images/gallery/Mango_1.jpg');"></div>
-          <div class="gallery-item" style="background-image: url('images/gallery/Mango_2.jpg'); background-position: center 33%;"></div>
-          <div class="gallery-item" style="background-image: url('images/gallery/Mango_3.jpg'); background-position: center 40%;"></div>
-          <div class="gallery-item" style="background-image: url('images/gallery/Mango_4.jpg'); background-position: center 40%;"></div>
+      <section id="about" class="bio">
+        <div class="container">
+          <div class="bio-content">
+            <h2>About Me</h2>
+            <ul>
+              <li><i class="fas fa-calendar-alt"></i> Age Range: 18-28</li>
+              <li><i class="fas fa-ruler-vertical"></i> Height: 170 cm</li>
+              <li><i class="fas fa-weight-hanging"></i> Build: Medium/Slender</li>
+              <li><i class="fas fa-palette"></i> Hair: Curly, Black</li>
+              <li><i class="fas fa-eye"></i> Eyes: Dark Brown</li>
+              <li><i class="fas fa-globe"></i> Languages: English, Malayalam, Hindi, Tamil</li>
+              <li><i class="fas fa-graduation-cap"></i> Training: Screen Acting Course, Nova Film Institute</li>
+            </ul>
+          </div>
+          <div class="bio-image" aria-label="Versatility still image"></div>
         </div>
-      </div>
+      </section>
 
-      <div class="tab-panel" id="ad2">
-        <!-- 4 stage play images -->
-        <div class="gallery-grid">
-          <div class="gallery-item" style="background-image: url('images/gallery/Naseef_01.jpeg'); background-position: 60% center;"></div>
-          <div class="gallery-item" style="background-image: url('images/gallery/Naseef_02.jpeg'); background-position: center 45%;"></div>
-          <div class="gallery-item" style="background-image: url('images/gallery/Naseef_03.jpeg');"></div>
-          <div class="gallery-item" style="background-image: url('images/gallery/Naseef_04.jpg'); background-position: center 15%;"></div>
+      <section class="certificate">
+        <div class="container">
+          <h2>Screen Acting Course</h2>
+          <img src="images/certificate-nova-acting-course.jpg" alt="Nova Film Institute Certificate" />
+          <p>Nova Film Institute, Ernakulam</p>
         </div>
-      </div>
+      </section>
 
-	<div class="tab-panel" id="ad3">
-        <!-- 4 photoshoot images -->
-        <div class="gallery-grid">
-          <div class="gallery-item" style="background-image: url('images/gallery/Swing_1.jpeg'); background-position: 80% center"></div>
-          <div class="gallery-item" style="background-image: url('images/gallery/Swing_2.jpeg');"></div>
-          <div class="gallery-item" style="background-image: url('images/gallery/Swing_3.jpeg'); background-position: 70% center;"></div>
-          <div class="gallery-item" style="background-image: url('images/gallery/Swing_4.jpeg'); background-position: center 20%;"></div>
+      <section id="gallery" class="gallery-tease">
+        <div class="container">
+          <h2>Gallery</h2>
+
+          <div class="gallery-tabs" role="tablist" aria-label="Gallery categories">
+            <button class="tab-btn active" data-tab="photoshoot" role="tab" aria-selected="true" aria-controls="photoshoot">Photoshoot</button>
+            <button class="tab-btn" data-tab="soothravakyam" role="tab" aria-selected="false" aria-controls="soothravakyam">Soothravakyam</button>
+            <button class="tab-btn" data-tab="ad1" role="tab" aria-selected="false" aria-controls="ad1">Ad 1</button>
+            <button class="tab-btn" data-tab="ad2" role="tab" aria-selected="false" aria-controls="ad2">Ad 2</button>
+            <button class="tab-btn" data-tab="ad3" role="tab" aria-selected="false" aria-controls="ad3">Ad 3</button>
+            <button class="tab-btn" data-tab="cleanshave" role="tab" aria-selected="false" aria-controls="cleanshave">Clean Shave</button>
+          </div>
+
+          <div class="gallery-content">
+            <div class="tab-panel active" id="photoshoot" role="tabpanel">
+              <div class="gallery-grid">
+                <div class="gallery-item" style="background-image: url('images/gallery/Cigg_1.jpg');"></div>
+                <div class="gallery-item" style="background-image: url('images/gallery/Cigg_2.jpg'); background-position: center 30%;"></div>
+                <div class="gallery-item" style="background-image: url('images/gallery/Cigg_3.jpg');"></div>
+                <div class="gallery-item" style="background-image: url('images/gallery/Cigg_4.jpg');"></div>
+              </div>
+            </div>
+
+            <div class="tab-panel" id="soothravakyam" role="tabpanel">
+              <div class="gallery-grid">
+                <div class="gallery-item" style="background-image: url('images/gallery/sv_1.png'); background-position: 40% center;"></div>
+                <div class="gallery-item" style="background-image: url('images/gallery/sv_2.png'); background-position: center 2%;"></div>
+                <div class="gallery-item" style="background-image: url('images/gallery/sv_3.png');"></div>
+                <div class="gallery-item" style="background-image: url('images/gallery/sv_4.png');"></div>
+              </div>
+            </div>
+
+            <div class="tab-panel" id="ad1" role="tabpanel">
+              <div class="gallery-grid">
+                <div class="gallery-item" style="background-image: url('images/gallery/Mango_1.jpg');"></div>
+                <div class="gallery-item" style="background-image: url('images/gallery/Mango_2.jpg'); background-position: center 33%;"></div>
+                <div class="gallery-item" style="background-image: url('images/gallery/Mango_3.jpg'); background-position: center 40%;"></div>
+                <div class="gallery-item" style="background-image: url('images/gallery/Mango_4.jpg'); background-position: center 40%;"></div>
+              </div>
+            </div>
+
+            <div class="tab-panel" id="ad2" role="tabpanel">
+              <div class="gallery-grid">
+                <div class="gallery-item" style="background-image: url('images/gallery/Naseef_01.jpeg'); background-position: 60% center;"></div>
+                <div class="gallery-item" style="background-image: url('images/gallery/Naseef_02.jpeg'); background-position: center 45%;"></div>
+                <div class="gallery-item" style="background-image: url('images/gallery/Naseef_03.jpeg');"></div>
+                <div class="gallery-item" style="background-image: url('images/gallery/Naseef_04.jpg'); background-position: center 15%;"></div>
+              </div>
+            </div>
+
+            <div class="tab-panel" id="ad3" role="tabpanel">
+              <div class="gallery-grid">
+                <div class="gallery-item" style="background-image: url('images/gallery/Swing_1.jpeg'); background-position: 80% center;"></div>
+                <div class="gallery-item" style="background-image: url('images/gallery/Swing_2.jpeg');"></div>
+                <div class="gallery-item" style="background-image: url('images/gallery/Swing_3.jpeg'); background-position: 70% center;"></div>
+                <div class="gallery-item" style="background-image: url('images/gallery/Swing_4.jpeg'); background-position: center 20%;"></div>
+              </div>
+            </div>
+
+            <div class="tab-panel" id="cleanshave" role="tabpanel">
+              <div class="gallery-grid">
+                <div class="gallery-item" style="background-image: url('images/gallery/Naseef_CS_01.jpg');"></div>
+                <div class="gallery-item" style="background-image: url('images/gallery/Naseef_CS_02.jpg');"></div>
+                <div class="gallery-item" style="background-image: url('images/gallery/Naseef_CS_03.jpg'); background-position: center 2%;"></div>
+                <div class="gallery-item" style="background-image: url('images/gallery/Naseef_CS_04.jpg'); background-position: center 18%;"></div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
 
-<div class="tab-panel" id="cleanshave">
-        <!-- 4 photoshoot images -->
-        <div class="gallery-grid">
-          <div class="gallery-item" style="background-image: url('images/gallery/Naseef_CS_01.jpg');"></div>
-          <div class="gallery-item" style="background-image: url('images/gallery/Naseef_CS_02.jpg');"></div>
-          <div class="gallery-item" style="background-image: url('images/gallery/Naseef_CS_03.jpg'); background-position: center 2%;"></div>
-          <div class="gallery-item" style="background-image: url('images/gallery/Naseef_CS_04.jpg'); background-position: center 18%;"></div>
+      <section id="contact" class="contact-section">
+        <div class="container">
+          <div class="contact-card">
+            <div class="card-text">
+              <h2>Let's Connect</h2>
+              <div class="underline"></div>
+              <ul>
+                <li>
+                  <a href="https://wa.me/917907885626" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-whatsapp"></i> +91 79078 85626
+                  </a>
+                </li>
+                <li>
+                  <a href="mailto:naseefppactor@gmail.com">
+                    <i class="fas fa-envelope"></i> naseefppactor@gmail.com
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.instagram.com/naseef_pp/" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-instagram"></i> @naseef_pp
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
 
+      <footer>
+        <div class="container">
+          <div class="footer-icons">
+            <a href="https://www.instagram.com/naseef_pp/" target="_blank" rel="noopener noreferrer" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/917907885626" target="_blank" rel="noopener noreferrer" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="mailto:naseefppactor@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+          </div>
+          <p class="copyright">© 2025 Naseef P.P. All rights reserved.</p>
+        </div>
+      </footer>
     </div>
   </div>
-</section>
 
+  <button class="back-to-top" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
 
-	<!-- End of Gallery -->
+  <div id="lightbox" class="lightbox" aria-modal="true" role="dialog">
+    <span class="lightbox-close" aria-label="Close">&times;</span>
+    <span class="lightbox-prev" aria-label="Previous">&#10094;</span>
+    <span class="lightbox-next" aria-label="Next">&#10095;</span>
+    <div class="lightbox-inner">
+        <img class="lightbox-img" src="" alt="Expanded view" />
+    </div>
+  </div>
 
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <div class="contact-card">
-                <div class="card-text">
-                    <h2>Let's Connect</h2>
-                    <div class="underline"></div>
-                    <ul>
-                        <li>
-				<a href="https://wa.me/917907885626" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-whatsapp"></i>
-                            +91 79078 85626</a>
-                        </li>
-                        <li>
-				<a href="mailto:naseefppactor@gmail.com">
-                            <i class="fas fa-envelope"></i>
-                            naseefppactor@gmail.com</a>
-                        </li>
-                        <li>
-				<a href="https://www.instagram.com/naseef_pp/" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-instagram"></i>
-                            @naseef_pp</a>
-                        </li>
-                    </ul>
-                </div>
-                
-                <div class="card-image"></div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <div class="footer-icons">
-                <a href="https://www.instagram.com/naseef_pp/" target="_blank" rel="noopener noreferrer" title="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://wa.me/917907885626" target="_blank" rel="noopener noreferrer" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                <a href="mailto:naseefppactor@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-            </div>
-            <p class="copyright">© 2025 Naseef P.P. All rights reserved.</p>
-        </div>
-    </footer>
-	</div>
-	</div>
-
-	<button class="back-to-top" onclick="scrollToTop()">
-        	<i class="fas fa-arrow-up"></i>
-    	</button>
-	<div id="lightbox" class="lightbox">
-  		<span class="lightbox-close">&times;</span>
-		<span class="lightbox-prev">&#10094;</span>
-  		<span class="lightbox-next">&#10095;</span>
-  		<img class="lightbox-img" src="" alt="Expanded view">
-	</div>
-
-
-    <!-- Swiper JS -->
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script>
-        // Initialize Swiper with breakpoints
-        const swiper = new Swiper('.featured-swiper', {
-            slidesPerView: 1.2,
-            spaceBetween: 20,
-            loop: true,
-            grabCursor: true,
-            centeredSlides: true,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-                dynamicBullets: true,
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            breakpoints: {
-                768: {
-                    slidesPerView: 2,
-                    spaceBetween: 20,
-                },
-                1024: {
-                    slidesPerView: 3,
-                    spaceBetween: 20,
-                },
-            },
-        });
-
-        // Hamburger menu toggle
-        function toggleMenu() {
-            const menu = document.getElementById('nav-menu');
-            menu.classList.toggle('active');
-        }
-
-        // Close menu on link click
-        document.querySelectorAll('#nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.getElementById('nav-menu').classList.remove('active');
-            });
-        });
-
-        // Smooth scroll for CTAs
-        document.querySelector('.cta').addEventListener('click', function(e) {
-            e.preventDefault();
-            document.querySelector('#teasers').scrollIntoView({ behavior: 'smooth' });
-        });
-
-  // get references
-  const btn = document.querySelector('.back-to-top');
-  const scrollContainer = document.querySelector('.parallax'); // your scrollable element
-
-  // show/hide based on scroll of the container
-  function handleScroll() {
-  if (!scrollContainer) return;
-
-  const scrollTop = scrollContainer.scrollTop;
-  const scrollHeight = scrollContainer.scrollHeight;
-  const clientHeight = scrollContainer.clientHeight;
-
-  const atTop = scrollTop === 0;
-  const atBottom = scrollTop + clientHeight >= scrollHeight - 5; // small tolerance
-
-  if (atTop) {
-    btn.classList.remove('show'); // hide at very top
-  } else if (atBottom) {
-    btn.classList.add('show'); // show only when bottom reached
-  }
-  // otherwise do nothing - keeps last state
-}
-
-  // attach listener
-  if (scrollContainer) {
-    scrollContainer.addEventListener('scroll', handleScroll, { passive: true });
-    // run once on load in case the page is already scrolled
-    handleScroll();
-  } else {
-    // fallback to window if .parallax missing
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-  }
-
-  // scroll-to-top: scroll the container smoothly if present, otherwise window
-  function scrollToTop() {
-    if (scrollContainer) {
-      scrollContainer.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  }
-
-  // expose function for button onclick (or set an event listener)
-  window.scrollToTop = scrollToTop;
-
-	// Gallery updated code
-	const tabButtons = document.querySelectorAll('.tab-btn');
-  const tabPanels = document.querySelectorAll('.tab-panel');
-
-  tabButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      // Remove active classes
-      tabButtons.forEach(b => b.classList.remove('active'));
-      tabPanels.forEach(panel => panel.classList.remove('active'));
-
-      // Add active to clicked tab and corresponding panel
-      btn.classList.add('active');
-      document.getElementById(btn.dataset.tab).classList.add('active');
-    });
-  });
-	// END of gallery updated code
-
-	// Lightbox with swipe support
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.querySelector('.lightbox-img');
-const closeBtn = document.querySelector('.lightbox-close');
-const prevBtn = document.querySelector('.lightbox-prev');
-const nextBtn = document.querySelector('.lightbox-next');
-
-const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
-let currentIndex = 0;
-let lightboxActive = false;
-
-// Show image in lightbox
-function showLightbox(index, pushState = true) {
-  const bg = galleryItems[index].style.backgroundImage;
-  const url = bg.slice(5, -2);
-  lightboxImg.src = url;
-  lightbox.classList.add('show');
-  currentIndex = index;
-  lightboxActive = true;
-
-  if (pushState) {
-    history.pushState({ lightbox: true }, '', '#lightbox');
-  }
-}
-
-// Close lightbox
-function closeLightbox(popState = false) {
-  lightbox.classList.remove('show');
-  lightboxActive = false;
-
-  if (!popState && history.state?.lightbox) {
-    history.back();
-  }
-}
-
-// Click to open
-galleryItems.forEach((item, index) => {
-  item.addEventListener('click', () => showLightbox(index));
-});
-
-// Close actions
-closeBtn.addEventListener('click', () => closeLightbox());
-lightbox.addEventListener('click', (e) => {
-  if (e.target === lightbox) closeLightbox();
-});
-
-// Navigation buttons
-prevBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
-  showLightbox(currentIndex, false);
-});
-nextBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex + 1) % galleryItems.length;
-  showLightbox(currentIndex, false);
-});
-
-// Keyboard support
-document.addEventListener('keydown', (e) => {
-  if (!lightboxActive) return;
-  if (e.key === 'ArrowLeft') prevBtn.click();
-  if (e.key === 'ArrowRight') nextBtn.click();
-  if (e.key === 'Escape') closeLightbox();
-});
-
-// Swipe support
-let touchStartX = 0;
-let touchEndX = 0;
-
-lightbox.addEventListener('touchstart', (e) => {
-  touchStartX = e.changedTouches[0].screenX;
-});
-lightbox.addEventListener('touchend', (e) => {
-  touchEndX = e.changedTouches[0].screenX;
-  handleSwipe();
-});
-
-function handleSwipe() {
-  const threshold = 50;
-  if (touchEndX - touchStartX > threshold) {
-    prevBtn.click();
-  } else if (touchStartX - touchEndX > threshold) {
-    nextBtn.click();
-  }
-}
-
-// Back button closes lightbox
-window.addEventListener('popstate', (e) => {
-  if (lightboxActive && !e.state?.lightbox) {
-    closeLightbox(true);
-  }
-});
-    </script>
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <!-- Site JS -->
+  <script src="script.js"></script>
 </body>
 </html>
-
