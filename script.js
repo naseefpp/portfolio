@@ -180,20 +180,82 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeLightbox();
 });
 
-// Swipe (backdrop only, not while zoomed)
+// NEW IMPROVED MOBILE TOUCH HANDLING
 let touchStartX = 0;
-let touchEndX = 0;
-lightbox.addEventListener('touchstart', e => {
-  if (e.target === lightboxImg && scale > 1) return;
-  touchStartX = e.changedTouches[0].screenX;
+let touchStartY = 0;
+let touchStartTime = 0;
+let isPotentialSwipe = true;  // becomes false if we detect pinch or vertical scroll
+
+lightbox.addEventListener('touchstart', (e) => {
+  if (!lightboxActive) return;
+
+  const touch = e.touches[0];
+  touchStartX = touch.clientX;
+  touchStartY = touch.clientY;
+  touchStartTime = Date.now();
+
+  // If already zoomed OR more than 1 finger → this is pinch/pan, NOT swipe
+  if (scale > 1 || e.touches.length > 1) {
+    isPotentialSwipe = false;
+  } else {
+    isPotentialSwipe = true;
+  }
+
+  // If zoomed and single finger → allow panning (your existing pan code already handles this)
+  if (scale > 1 && e.touches.length === 1) {
+    isDragging = true;
+    startX = touch.clientX - currentX;
+    startY = touch.clientY - currentY;
+  }
 });
-lightbox.addEventListener('touchend', e => {
-  if (e.target === lightboxImg && scale > 1) return;
-  touchEndX = e.changedTouches[0].screenX;
+
+lightbox.addEventListener('touchmove', (e) => {
+  if (!lightboxActive) return;
+
+  // If more than one finger → definitely pinch zoom → block swipe completely
+  if (e.touches.length > 1) {
+    isPotentialSwipe = false;
+    return;
+  }
+
+  // If we're zoomed and dragging the image → don't allow swipe
+  if (scale > 1) {
+    isPotentialSwipe = false;
+  }
+
+  // Optional: if vertical movement is big → treat as scroll, not swipe
+  const touch = e.touches[0];
+  const deltaY = Math.abs(touch.clientY - touchStartY);
+  const deltaX = Math.abs(touch.clientX - touchStartX);
+  if (deltaY > deltaX + 20) {  // user is scrolling vertically more than horizontally
+    isPotentialSwipe = false;
+  }
+});
+
+lightbox.addEventListener('touchend', (e) => {
+  if (!lightboxActive || !isPotentialSwipe) {
+    isDragging = false;
+    return;
+  }
+
+  const touch = e.changedTouches[0];
+  const deltaX = touch.clientX - touchStartX;
+  const deltaTime = Date.now() - touchStartTime;
   const threshold = 50;
-  if (touchEndX - touchStartX > threshold) prevBtn.click();
-  else if (touchStartX - touchEndX > threshold) nextBtn.click();
+  const swipeTimeThreshold = 500; // ignore very slow swipes
+
+  if (deltaTime < swipeTimeThreshold && Math.abs(deltaX) > threshold) {
+    if (deltaX > 0) {
+      prevBtn.click();  // swiped right → previous
+    } else {
+      nextBtn.click();  // swiped left → next
+    }
+  }
+
+  isDragging = false;
 });
+
+// Old codes for lightbox
 
 // History back
 window.addEventListener('popstate', e => {
@@ -240,25 +302,4 @@ lightboxInner.addEventListener('mousemove', e => {
   currentY = -offsetY * maxPanY;
   clampPan();
   updateTransform();
-});
-
-// Touch pan (fixed: added missing touchstart/move/end vars and logic)
-lightboxImg.addEventListener('touchstart', (e) => {
-  if (scale <= 1) return;
-  if (e.touches.length !== 1) return;
-  isDragging = true;
-  startX = e.touches[0].clientX - currentX;
-  startY = e.touches[0].clientY - currentY;
-});
-
-lightboxImg.addEventListener('touchmove', (e) => {
-  if (!isDragging || e.touches.length !== 1) return;
-  currentX = e.touches[0].clientX - startX;
-  currentY = e.touches[0].clientY - startY;
-  clampPan();
-  updateTransform();
-});
-
-lightboxImg.addEventListener('touchend', () => {
-  isDragging = false;
 });
