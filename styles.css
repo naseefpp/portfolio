@@ -163,15 +163,8 @@ nav ul li a:hover { text-decoration: underline; }
 .bio-content li i { margin-right: 0.5rem; width: 1rem; opacity: 0.5; flex-shrink: 0; transition: color 0.3s; }
 .bio-content li:hover i { color: #333; }
 
-/* Certificate */
-.certificate { padding: 3rem 0; background: #fff; text-align: center; }
-.certificate h2 { font-size: 2rem; font-weight: 300; margin-bottom: 1rem; letter-spacing: 0.1em; }
-.certificate img { max-width: 600px; width: 100%; height: auto; border-radius: 10px; border: 1px solid #eee; transition: transform 0.3s; }
-.certificate img:hover { transform: scale(1.02); }
-.certificate p { opacity: 0.7; font-size: 1rem; margin-top: 1rem; }
-
 /* Gallery */
-.gallery-tease { padding: 5rem 0; background: #f9f9f9; text-align: center; }
+.gallery-tease { padding: 5rem 0; background: #fff; text-align: center; }
 .gallery-tease h2 { font-size: 2.5rem; font-weight: 300; margin-bottom: 3rem; letter-spacing: 0.1em; }
 .gallery-tabs { display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
 .tab-btn {
@@ -219,7 +212,7 @@ nav ul li a:hover { text-decoration: underline; }
   max-width: 90%;
   max-height: 90%;
 }
-.lightbox-img { opacity: 1; filter: none; width: auto; height: auto; max-width: 90vw; max-height: 90vh; object-fit: contain; border-radius: 10px; box-shadow: 0 0 20px rgba(255,255,255,0.1); transition: transform 0.2s ease; transform-origin: center center; cursor: zoom-in; }
+.lightbox-img { opacity: 1; filter: none; width: auto; height: auto; max-width: 90vw; max-height: 90vh; object-fit: contain; border-radius: 10px; box-shadow: 0 0 20px rgba(255,255,255,0.1); transition: transform 0.2s ease; transform-origin: center center; cursor: zoom-in; touch-action: pan-x pan-y pinch-zoom; }
 .lightbox-img.zoomed { cursor: zoom-out; transform: scale(2); }
 .lightbox-img.loading { opacity: 0.5; filter: blur(5px); transition: opacity 0.3s, filter 0.3s; }
 .lightbox-close, .lightbox-prev, .lightbox-next {
@@ -230,6 +223,13 @@ nav ul li a:hover { text-decoration: underline; }
 .lightbox-prev { left: 1rem; }
 .lightbox-next { right: 1rem; }
 .lightbox-prev:hover, .lightbox-next:hover { color: #ccc; }
+
+/* Certificate */
+.certificate { padding: 3rem 0; background: #f9f9f9; text-align: center; }
+.certificate h2 { font-size: 2rem; font-weight: 300; margin-bottom: 1rem; letter-spacing: 0.1em; }
+.certificate img { max-width: 600px; width: 100%; height: auto; border-radius: 10px; border: 1px solid #eee; transition: transform 0.3s; }
+.certificate img:hover { transform: scale(1.02); }
+.certificate p { opacity: 0.7; font-size: 1rem; margin-top: 1rem; }
 
 /* Contact */
 .contact-section { padding: 5rem 0; background: #fff; }
@@ -295,12 +295,12 @@ footer { background: #000; color: #fff; padding: 2rem 0; text-align: center; }
   .featured-card:hover { box-shadow: 0 8px 12px rgba(255,255,255,0.2); }
   .swiper-button-next, .swiper-button-prev { color: #fff !important; }
   .swiper-pagination-bullet, .swiper-pagination-bullet-active { background: #fff; }
-  .bio { background: #1a1a1a; }
+  .bio { background: #212121; }
   .bio::before { background: #fff; }
   .bio-content h2, .bio-content li { color: #e0e0e0; }
   .bio-content li i { color: #fff; }
   .bio-content li:hover i { color: #ccc; }
-  .certificate { background: #1a1a1a; }
+  .certificate { background: #212121; }
   .certificate h2 { color: #e0e0e0; }
   .certificate p { color: #ccc; }
   .gallery-tease { background: #1a1a1a; }
