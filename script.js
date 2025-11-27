@@ -1,3 +1,13 @@
+//Nav menu smooth scroll and remove history pollution
+document.querySelectorAll('#nav-menu a').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault(); // stop hash navigation
+    const targetId = link.getAttribute('data-target');
+    const section = document.getElementById(targetId);
+    section.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
 // Swiper: Featured works
 const swiper = new Swiper('.featured-swiper', {
   slidesPerView: 1.2,
