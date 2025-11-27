@@ -1,9 +1,7 @@
+
 /* Base */
 * { box-sizing: border-box; }
 html, body { height: 100%; }
-html {
-  scroll-behavior: smooth;
-}
 body {
   margin: 0;
   padding: 0;
@@ -36,19 +34,10 @@ nav ul li a:hover { text-decoration: underline; }
 .hamburger span { width: 25px; height: 3px; background: #000; margin: 3px 0; transition: 0.3s; }
 
 /* Parallax layers */
-.parallax {
-	perspective: 0.3px;
-	height: 100vh;
-	overflow-x: hidden;
-	overflow-y: auto;
-	transform-style: preserve-3d;
-	scroll-behavior: smooth;
-}
+.parallax { perspective: 1px; height: 100vh; overflow-x: hidden; overflow-y: auto; transform-style: preserve-3d; }
 .parallax-layer { position: absolute; inset: 0; }
 .parallax-back {
-  position: absolute;
-  inset: 0;
-  transform: translateZ(-5px) scale(6);
+  transform: translateZ(-1px) scale(2);
   background-image: url('images/hero-bg-image.jpg');
   background-size: cover;
   background-position: 25% 33%;
