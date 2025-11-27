@@ -36,10 +36,19 @@ nav ul li a:hover { text-decoration: underline; }
 .hamburger span { width: 25px; height: 3px; background: #000; margin: 3px 0; transition: 0.3s; }
 
 /* Parallax layers */
-.parallax { perspective: 1px; height: 100vh; overflow-x: hidden; overflow-y: auto; transform-style: preserve-3d; }
+.parallax {
+	perspective: 0.3px;
+	height: 100vh;
+	overflow-x: hidden;
+	overflow-y: auto;
+	transform-style: preserve-3d;
+	scroll-behavior: smooth;
+}
 .parallax-layer { position: absolute; inset: 0; }
 .parallax-back {
-  transform: translateZ(-1px) scale(2);
+  position: absolute;
+  inset: 0;
+  transform: translateZ(-5px) scale(6);
   background-image: url('images/hero-bg-image.jpg');
   background-size: cover;
   background-position: 25% 33%;
@@ -356,4 +365,3 @@ footer { background: #000; color: #fff; padding: 2rem 0; text-align: center; }
 @media (min-width: 1024px) {
   .featured-swiper .swiper-slide { width: calc((100% - 40px) / 3); }
 }
-
