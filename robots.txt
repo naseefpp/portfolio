@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Allow everything – this is a public portfolio
+
+Sitemap: https://naseefpp.github.io/portfolio/sitemap.xml
