@@ -1,10 +1,13 @@
 //Nav menu smooth scroll and remove history pollution
 document.querySelectorAll('#nav-menu a').forEach(link => {
   link.addEventListener('click', e => {
-    e.preventDefault(); // stop hash navigation
-    const targetId = link.getAttribute('data-target');
+    e.preventDefault();
+    const targetId = link.getAttribute('href').substring(1);
     const section = document.getElementById(targetId);
     section.scrollIntoView({ behavior: 'smooth' });
+
+    // Replace hash without pushing history
+    history.replaceState(null, null, '#' + targetId);
   });
 });
 
@@ -313,3 +316,4 @@ lightboxInner.addEventListener('mousemove', e => {
   clampPan();
   updateTransform();
 });
+
