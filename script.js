@@ -1,13 +1,21 @@
 //Nav menu smooth scroll and remove history pollution
-document.querySelectorAll('#nav-menu a').forEach(link => {
-  link.addEventListener('click', e => {
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
     e.preventDefault();
-    const targetId = link.getAttribute('href').substring(1);
-    const section = document.getElementById(targetId);
-    section.scrollIntoView({ behavior: 'smooth' });
 
-    // Replace hash without pushing history
-    history.replaceState(null, null, '#' + targetId);
+    const href = this.getAttribute('href');           // "#contact"
+    const target = document.querySelector(href);
+    if (!target) return;
+
+    history.replaceState(null, null, href);
+
+    target.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+
+    // Close mobile menu
+    document.getElementById('nav-menu')?.classList.remove('active');
   });
 });
 
@@ -53,19 +61,14 @@ document.querySelectorAll('#nav-menu a').forEach(link => {
   link.addEventListener('click', () => navMenu.classList.remove('active'));
 });
 
-// Smooth scroll for hero CTA
-document.querySelector('.cta').addEventListener('click', e => {
-  e.preventDefault();
-  document.querySelector('#teasers').scrollIntoView({ behavior: 'smooth' });
-});
-
 // Back-to-top logic
 const backToTopBtn = document.querySelector('.back-to-top');
 const scrollContainer = document.querySelector('.parallax');
 function handleScroll() {
   if (!scrollContainer) return;
   const scrollTop = scrollContainer.scrollTop; // Fixed: Direct access to scrollTop
-  if (scrollTop > 100) {
+  const scrollTop2 = window.scrollY;
+  if (scrollTop > 300 || scrollTop2 > 300) {
     backToTopBtn.classList.add('show');
   } else {
     backToTopBtn.classList.remove('show');
@@ -316,4 +319,3 @@ lightboxInner.addEventListener('mousemove', e => {
   clampPan();
   updateTransform();
 });
-
