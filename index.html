@@ -5,19 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Naseef P P - Actor</title>
 
+  <!-- Meta Description (SEO) -->
+  <meta name="description" content="Naseef P P — Actor and Director based in Kerala. Featured in Soothravakyam (2025). Available for film, short film, and commercial projects." />
+
   <!-- Favicons -->
   <link rel="icon" type="image/x-icon" href="images/favicon_io/favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon_io/favicon-32x32.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="images/favicon_io/apple-touch-icon.png" />
 
+  <!-- Preload hero image for faster render -->
+  <link rel="preload" as="image" href="images/hero-bg-image.jpg" />
+
   <!-- Fonts & Icons -->
+  <!-- FIX: Helvetica Neue Condensed does not exist on Google Fonts. Replaced with Barlow Condensed which has the same weights (300/500/700) and a nearly identical condensed feel. -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue+Condensed:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
-  <!-- Swiper CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <!-- FIX: Swiper CDN pinned to major version 11 to prevent silent breaking changes on future releases -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper@11/swiper-bundle.min.css" />
 
   <!-- Site CSS -->
   <link rel="stylesheet" href="styles.css" />
@@ -33,7 +40,7 @@
   <meta property="og:image:height" content="630" />
   <meta property="og:site_name" content="Naseef P P Portfolio" />
 
-  <!-- Twitter Card (also helps many platforms) -->
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Naseef P P" />
   <meta name="twitter:description" content="Actor | Director | Soothravakyam (2025)" />
@@ -46,12 +53,13 @@
       <div class="logo">
         <h3 class="site-title">Naseef P P</h3>
       </div>
+      <!-- FIX: Removed dead data-target attributes — they were never read by JavaScript -->
       <ul id="nav-menu">
-        <li><a href="#home" data-target="home">Home</a></li>
-        <li><a href="#about" data-target="about">About</a></li>
-        <li><a href="#teasers" data-target="teasers">Filmography</a></li>
-        <li><a href="#gallery" data-target="gallery">Gallery</a></li>
-        <li><a href="#contact" data-target="contact">Contact</a></li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#teasers">Filmography</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
       <button class="hamburger" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -78,7 +86,8 @@
               <div class="swiper-slide">
                 <div class="featured-card">
                   <a href="https://www.imdb.com/title/tt34335405/" target="_blank" rel="noopener noreferrer">
-                    <img src="images/featured-soothravakyam-poster.jpg" alt="Soothravakyam Poster" />
+                    <!-- FIX: Added loading="lazy" to defer offscreen image loading -->
+                    <img src="images/featured-soothravakyam-poster.jpg" alt="Soothravakyam Poster" loading="lazy" />
                     <div class="featured-overlay">
                       <h3>Soothravakyam</h3>
                       <p>Lead Role<br />Feature Film • 2025</p>
@@ -87,11 +96,10 @@
                 </div>
               </div>
 
-
               <div class="swiper-slide">
                 <div class="featured-card">
                   <a href="https://youtu.be/Pho5Cjrw6_U" target="_blank" rel="noopener noreferrer">
-                    <img src="images/poster_shilpa.jpeg" alt="Shilpa Tamil Short film Poster" />
+                    <img src="images/poster_shilpa.jpeg" alt="Shilpa Tamil Short film Poster" loading="lazy" />
                     <div class="featured-overlay">
                       <h3>Shilpa</h3>
                       <p>Hero<br />Tamil Short Film • 2026</p>
@@ -100,11 +108,10 @@
                 </div>
               </div>
 
-
               <div class="swiper-slide">
                 <div class="featured-card">
                   <a href="https://youtu.be/0GG3pB6Z4kk" target="_blank" rel="noopener noreferrer">
-                    <img src="images/poster_orumiddleclasspadam_02.jpeg" alt="Oru Middle Class Padam Poster" />
+                    <img src="images/poster_orumiddleclasspadam_02.jpeg" alt="Oru Middle Class Padam Poster" loading="lazy" />
                     <div class="featured-overlay">
                       <h3>Oru Middleclass Padam</h3>
                       <p>Hero<br />Short Film • 2026</p>
@@ -113,11 +120,10 @@
                 </div>
               </div>
 
-
               <div class="swiper-slide">
                 <div class="featured-card">
                   <a href="https://www.youtube.com/watch?v=OAc6fc6zDJc" target="_blank" rel="noopener noreferrer">
-                    <img src="images/featured-favorite-spot-still.jpg" alt="Favorite Spot Still" />
+                    <img src="images/featured-favorite-spot-still.jpg" alt="Favorite Spot Still" loading="lazy" />
                     <div class="featured-overlay">
                       <h3>Favorite Spot</h3>
                       <p>Lead Role<br />Short Film • 2025</p>
@@ -126,11 +132,10 @@
                 </div>
               </div>
 
-
               <div class="swiper-slide">
                 <div class="featured-card">
                   <a href="https://www.instagram.com/reel/DLJ4MwRu1mU/" target="_blank" rel="noopener noreferrer">
-                    <img src="images/featured-saral-homes-ad.jpg" alt="Saral Home Ads" />
+                    <img src="images/featured-saral-homes-ad.jpg" alt="Saral Home Ads" loading="lazy" />
                     <div class="featured-overlay">
                       <h3>Saral Home Ads</h3>
                       <p>Recurring Model<br />Commercial Campaign</p>
@@ -138,10 +143,11 @@
                   </a>
                 </div>
               </div>
+
               <div class="swiper-slide">
                 <div class="featured-card">
                   <a href="https://www.youtube.com/watch?v=q0ZJHnDP7sY" target="_blank" rel="noopener noreferrer">
-                    <img src="images/poster_manaath.jpg" alt="Manaath Poster" />
+                    <img src="images/poster_manaath.jpg" alt="Manaath Poster" loading="lazy" />
                     <div class="featured-overlay">
                       <h3>Manaath</h3>
                       <p>Director<br />Short Film • 2022</p>
@@ -149,21 +155,23 @@
                   </a>
                 </div>
               </div>
+
               <div class="swiper-slide">
                 <div class="featured-card">
                   <a href="https://www.youtube.com/watch?v=hODJEWsuwpY" target="_blank" rel="noopener noreferrer">
-                    <img src="images/poster_thamah.jpg" alt="Thamah Poster" />
+                    <img src="images/poster_thamah.jpg" alt="Thamah Poster" loading="lazy" />
                     <div class="featured-overlay">
-                      <h3>Thamah:</h3>
+                      <h3>Thamah</h3>
                       <p>Director<br />Short Film • 2023</p>
                     </div>
                   </a>
                 </div>
               </div>
+
               <div class="swiper-slide">
                 <div class="featured-card">
                   <a href="https://www.youtube.com/watch?v=5O6OqYF0g7I" target="_blank" rel="noopener noreferrer">
-                    <img src="images/poster_priye.jpg" alt="Priye Poster" />
+                    <img src="images/poster_priye.jpg" alt="Priye Poster" loading="lazy" />
                     <div class="featured-overlay">
                       <h3>Priye</h3>
                       <p>Director<br />Musical Video • 2024</p>
@@ -193,7 +201,8 @@
               <li><i class="fas fa-graduation-cap"></i> Training: Screen Acting Course, Nova Film Institute</li>
             </ul>
           </div>
-          <div class="bio-image" aria-label="Versatility still image"></div>
+          <!-- FIX: Added role="img" so the aria-label is honoured by screen readers -->
+          <div class="bio-image" role="img" aria-label="Versatility still image"></div>
         </div>
       </section>
 
@@ -271,7 +280,7 @@
       <section class="certificate">
         <div class="container">
           <h2>Screen Acting Course</h2>
-          <img src="images/certificate-nova-acting-course.jpg" alt="Nova Film Institute Certificate" />
+          <img src="images/certificate-nova-acting-course.jpg" alt="Nova Film Institute Certificate" loading="lazy" />
           <p>Nova Film Institute, Ernakulam</p>
         </div>
       </section>
@@ -311,7 +320,8 @@
             <a href="https://wa.me/917907885626" target="_blank" rel="noopener noreferrer" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
             <a href="mailto:naseefppactor@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
           </div>
-          <p class="copyright">© 2025 Naseef P.P. All rights reserved.</p>
+          <!-- FIX: Updated copyright year from 2025 to 2026 -->
+          <p class="copyright">© 2026 Naseef P.P. All rights reserved.</p>
         </div>
       </footer>
     </div>
@@ -322,16 +332,17 @@
   </button>
 
   <div id="lightbox" class="lightbox" aria-modal="true" role="dialog">
-    <span class="lightbox-close" aria-label="Close">&times;</span>
-    <span class="lightbox-prev" aria-label="Previous">&#10094;</span>
-    <span class="lightbox-next" aria-label="Next">&#10095;</span>
+    <!-- FIX: Changed <span> controls to <button> elements so they are keyboard focusable and semantically correct -->
+    <button class="lightbox-close" aria-label="Close">&times;</button>
+    <button class="lightbox-prev" aria-label="Previous">&#10094;</button>
+    <button class="lightbox-next" aria-label="Next">&#10095;</button>
     <div class="lightbox-inner">
         <img class="lightbox-img" src="" alt="Expanded view" />
     </div>
   </div>
 
-  <!-- Swiper JS -->
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <!-- FIX: Swiper JS pinned to major version 11 -->
+  <script src="https://unpkg.com/swiper@11/swiper-bundle.min.js"></script>
   <!-- Site JS -->
   <script src="script.js"></script>
 </body>

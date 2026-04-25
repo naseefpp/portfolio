@@ -1,9 +1,9 @@
-//Nav menu smooth scroll and remove history pollution
+// Nav menu smooth scroll and remove history pollution
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     e.preventDefault();
 
-    const href = this.getAttribute('href');           // "#contact"
+    const href = this.getAttribute('href');
     const target = document.querySelector(href);
     if (!target) return;
 
@@ -30,7 +30,7 @@ const swiper = new Swiper('.featured-swiper', {
   navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
   autoplay: {
     delay: 3000,
-    disableOnInteraction: false, // we manage pause/resume manually
+    disableOnInteraction: false,
   },
   breakpoints: {
     768: { slidesPerView: 2, spaceBetween: 10 },
@@ -49,35 +49,46 @@ function pauseAutoplay() {
 }
 
 // Pause on user interaction only
+// FIX: Added null checks so these don't throw if the elements are missing for any reason
 swiper.on('touchStart', pauseAutoplay);
-document.querySelector('.swiper-button-next').addEventListener('click', pauseAutoplay);
-document.querySelector('.swiper-button-prev').addEventListener('click', pauseAutoplay);
+const swiperNextBtn = document.querySelector('.swiper-button-next');
+const swiperPrevBtn = document.querySelector('.swiper-button-prev');
+if (swiperNextBtn) swiperNextBtn.addEventListener('click', pauseAutoplay);
+if (swiperPrevBtn) swiperPrevBtn.addEventListener('click', pauseAutoplay);
 
 // Hamburger menu
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.getElementById('nav-menu');
-hamburger.addEventListener('click', () => navMenu.classList.toggle('active'));
-document.querySelectorAll('#nav-menu a').forEach(link => {
-  link.addEventListener('click', () => navMenu.classList.remove('active'));
-});
+if (hamburger && navMenu) {
+  hamburger.addEventListener('click', () => navMenu.classList.toggle('active'));
+  document.querySelectorAll('#nav-menu a').forEach(link => {
+    link.addEventListener('click', () => navMenu.classList.remove('active'));
+  });
+}
 
 // Back-to-top logic
 const backToTopBtn = document.querySelector('.back-to-top');
 const scrollContainer = document.querySelector('.parallax');
+
 function handleScroll() {
   if (!scrollContainer) return;
-  const scrollTop = scrollContainer.scrollTop; // Fixed: Direct access to scrollTop
-  const scrollTop2 = window.scrollY;
-  if (scrollTop > 300 || scrollTop2 > 300) {
+  // FIX: Removed the dead window.scrollY fallback — the page scrolls inside
+  // .parallax, not window, so window.scrollY is always 0 and was never triggered.
+  if (scrollContainer.scrollTop > 300) {
     backToTopBtn.classList.add('show');
   } else {
     backToTopBtn.classList.remove('show');
   }
 }
-scrollContainer.addEventListener('scroll', handleScroll, { passive: true });
-backToTopBtn.addEventListener('click', () => {
-  scrollContainer.scrollTo({ top: 0, behavior: 'smooth' });
-});
+
+if (scrollContainer) {
+  scrollContainer.addEventListener('scroll', handleScroll, { passive: true });
+}
+if (backToTopBtn) {
+  backToTopBtn.addEventListener('click', () => {
+    scrollContainer.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
 
 // Gallery tabs
 const tabButtons = document.querySelectorAll('.tab-btn');
@@ -106,7 +117,6 @@ const nextBtn = document.querySelector('.lightbox-next');
 // Collect ALL gallery items across tabs
 const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
 
-// Fixed: Consolidated declarations (removed duplicates)
 let currentIndex = 0;
 let lightboxActive = false;
 let scale = 1;
@@ -119,7 +129,15 @@ let startY = 0;
 // Open lightbox
 function showLightbox(index, pushState = true) {
   const bg = galleryItems[index].style.backgroundImage;
-  const url = bg.slice(5, -2);
+
+  // FIX: Replaced the fragile bg.slice(5, -2) extraction with a regex.
+  // The old approach assumed double-quote wrapping (url("...")) which is
+  // Chrome-specific. Firefox/Safari can return url(...) without quotes,
+  // which would produce a broken image src. The regex handles all variants.
+  const urlMatch = bg.match(/url\(["']?(.+?)["']?\)/i);
+  if (!urlMatch) return;
+  const url = urlMatch[1];
+
   lightboxImg.src = url;
 
   // Reset zoom/pan
@@ -196,11 +214,11 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeLightbox();
 });
 
-// NEW IMPROVED MOBILE TOUCH HANDLING
+// Mobile touch handling
 let touchStartX = 0;
 let touchStartY = 0;
 let touchStartTime = 0;
-let isPotentialSwipe = true;  // becomes false if we detect pinch or vertical scroll
+let isPotentialSwipe = true;
 
 lightbox.addEventListener('touchstart', (e) => {
   if (!lightboxActive) return;
@@ -210,14 +228,12 @@ lightbox.addEventListener('touchstart', (e) => {
   touchStartY = touch.clientY;
   touchStartTime = Date.now();
 
-  // If already zoomed OR more than 1 finger → this is pinch/pan, NOT swipe
   if (scale > 1 || e.touches.length > 1) {
     isPotentialSwipe = false;
   } else {
     isPotentialSwipe = true;
   }
 
-  // If zoomed and single finger → allow panning (your existing pan code already handles this)
   if (scale > 1 && e.touches.length === 1) {
     isDragging = true;
     startX = touch.clientX - currentX;
@@ -228,22 +244,19 @@ lightbox.addEventListener('touchstart', (e) => {
 lightbox.addEventListener('touchmove', (e) => {
   if (!lightboxActive) return;
 
-  // If more than one finger → definitely pinch zoom → block swipe completely
   if (e.touches.length > 1) {
     isPotentialSwipe = false;
     return;
   }
 
-  // If we're zoomed and dragging the image → don't allow swipe
   if (scale > 1) {
     isPotentialSwipe = false;
   }
 
-  // Optional: if vertical movement is big → treat as scroll, not swipe
   const touch = e.touches[0];
   const deltaY = Math.abs(touch.clientY - touchStartY);
   const deltaX = Math.abs(touch.clientX - touchStartX);
-  if (deltaY > deltaX + 20) {  // user is scrolling vertically more than horizontally
+  if (deltaY > deltaX + 20) {
     isPotentialSwipe = false;
   }
 });
@@ -258,20 +271,18 @@ lightbox.addEventListener('touchend', (e) => {
   const deltaX = touch.clientX - touchStartX;
   const deltaTime = Date.now() - touchStartTime;
   const threshold = 50;
-  const swipeTimeThreshold = 500; // ignore very slow swipes
+  const swipeTimeThreshold = 500;
 
   if (deltaTime < swipeTimeThreshold && Math.abs(deltaX) > threshold) {
     if (deltaX > 0) {
-      prevBtn.click();  // swiped right → previous
+      prevBtn.click();
     } else {
-      nextBtn.click();  // swiped left → next
+      nextBtn.click();
     }
   }
 
   isDragging = false;
 });
-
-// Old codes for lightbox
 
 // History back
 window.addEventListener('popstate', e => {
@@ -280,17 +291,17 @@ window.addEventListener('popstate', e => {
   }
 });
 
-// Toggle zoom on click (fixed: apply transform immediately on zoom in)
+// Toggle zoom on click
 lightboxImg.addEventListener('click', e => {
   e.stopPropagation();
   if (scale === 1) {
-    scale = 2; // zoom in
+    scale = 2;
     lightboxImg.classList.add('zoomed');
     currentX = 0;
     currentY = 0;
-    updateTransform(); // Apply scale immediately
+    updateTransform();
   } else {
-    scale = 1; // zoom out
+    scale = 1;
     lightboxImg.classList.remove('zoomed');
     currentX = 0;
     currentY = 0;
@@ -298,19 +309,17 @@ lightboxImg.addEventListener('click', e => {
   }
 });
 
-// Hover-pan when zoomed (fixed: sync with currentX/Y and clamp)
+// Hover-pan when zoomed
 lightboxInner.addEventListener('mousemove', e => {
   if (scale <= 1) return;
 
   const rect = lightboxInner.getBoundingClientRect();
-  const x = e.clientX - rect.left;   // mouse X inside container
-  const y = e.clientY - rect.top;    // mouse Y inside container
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
 
-  // Normalize to -0.5 … +0.5
   const offsetX = (x / rect.width - 0.5) * 2;
   const offsetY = (y / rect.height - 0.5) * 2;
 
-  // Max pan distance (adjust multiplier for sensitivity)
   const maxPanX = (scale - 1) * rect.width / 2;
   const maxPanY = (scale - 1) * rect.height / 2;
 
