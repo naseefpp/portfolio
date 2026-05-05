@@ -5,33 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Naseef P P - Actor</title>
 
-  <!-- Meta Description (SEO) -->
-  <meta name="description" content="Naseef P P — Actor and Director based in Kerala. Featured in Soothravakyam (2025). Available for film, short film, and commercial projects." />
+  <meta name="description" content="Naseef P P — Actor and Filmmaker based in Kerala. Featured in Soothravakyam (2025). Available for film, short film, and commercial projects." />
 
   <!-- Favicons -->
   <link rel="icon" type="image/x-icon" href="images/favicon_io/favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon_io/favicon-32x32.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="images/favicon_io/apple-touch-icon.png" />
 
-  <!-- Preload hero image for faster render -->
-  <link rel="preload" as="image" href="images/hero-bg-image.jpg" />
+  <!-- Preload hero image -->
+  <link rel="preload" as="image" href="images/hero-headshot-mango.jpg" />
 
   <!-- Fonts & Icons -->
-  <!-- FIX: Helvetica Neue Condensed does not exist on Google Fonts. Replaced with Barlow Condensed which has the same weights (300/500/700) and a nearly identical condensed feel. -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
-  <!-- FIX: Swiper CDN pinned to major version 11 to prevent silent breaking changes on future releases -->
+  <!-- Swiper pinned to v11 -->
   <link rel="stylesheet" href="https://unpkg.com/swiper@11/swiper-bundle.min.css" />
 
   <!-- Site CSS -->
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- Open Graph / Social Media Preview Tags -->
+  <!-- Open Graph -->
   <meta property="og:title" content="Naseef P P" />
-  <meta property="og:description" content="Actor | Director | Featured in Soothravakyam (2025), Let's collaborate!" />
+  <meta property="og:description" content="Actor | Filmmaker | Featured in Soothravakyam (2025)" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://naseefpp.github.io/portfolio/" />
   <meta property="og:image" content="https://naseefpp.github.io/portfolio/images/og-preview.jpg" />
@@ -43,21 +41,25 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Naseef P P" />
-  <meta name="twitter:description" content="Actor | Director | Soothravakyam (2025)" />
+  <meta name="twitter:description" content="Actor | Filmmaker | Soothravakyam (2025)" />
   <meta name="twitter:image" content="https://naseefpp.github.io/portfolio/images/og-preview.jpg" />
   <meta name="twitter:image:alt" content="Naseef P P - Actor Headshot" />
 </head>
 <body>
+
+  <!-- Fixed parallax hero background -->
+  <div class="hero-bg" aria-hidden="true"></div>
+
+  <!-- Navigation -->
   <nav>
     <div class="container">
       <div class="logo">
         <h3 class="site-title">Naseef P P</h3>
       </div>
-      <!-- FIX: Removed dead data-target attributes — they were never read by JavaScript -->
       <ul id="nav-menu">
         <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
         <li><a href="#teasers">Filmography</a></li>
+        <li><a href="#about">Profile</a></li>
         <li><a href="#gallery">Gallery</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -67,283 +69,350 @@
     </div>
   </nav>
 
-  <div class="parallax">
-    <div class="parallax-layer parallax-back"></div>
-    <div class="parallax-layer parallax-base">
-      <section id="home" class="hero">
-        <div class="hero-content">
-          <h1>Naseef P P</h1>
-          <p class="tagline">Actor • Director</p>
-          <a href="#teasers" class="cta">Explore Work</a>
-        </div>
-      </section>
-
-      <section id="teasers" class="teasers">
-        <div class="container">
-          <h2>Featured Works</h2>
-          <div class="swiper featured-swiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <div class="featured-card">
-                  <a href="https://www.imdb.com/title/tt34335405/" target="_blank" rel="noopener noreferrer">
-                    <!-- FIX: Added loading="lazy" to defer offscreen image loading -->
-                    <img src="images/featured-soothravakyam-poster.jpg" alt="Soothravakyam Poster" loading="lazy" />
-                    <div class="featured-overlay">
-                      <h3>Soothravakyam</h3>
-                      <p>Lead Role<br />Feature Film • 2025</p>
-                    </div>
-                  </a>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="featured-card">
-                  <a href="https://youtu.be/Pho5Cjrw6_U" target="_blank" rel="noopener noreferrer">
-                    <img src="images/poster_shilpa.jpeg" alt="Shilpa Tamil Short film Poster" loading="lazy" />
-                    <div class="featured-overlay">
-                      <h3>Shilpa</h3>
-                      <p>Hero<br />Tamil Short Film • 2026</p>
-                    </div>
-                  </a>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="featured-card">
-                  <a href="https://youtu.be/0GG3pB6Z4kk" target="_blank" rel="noopener noreferrer">
-                    <img src="images/poster_orumiddleclasspadam_02.jpeg" alt="Oru Middle Class Padam Poster" loading="lazy" />
-                    <div class="featured-overlay">
-                      <h3>Oru Middleclass Padam</h3>
-                      <p>Hero<br />Short Film • 2026</p>
-                    </div>
-                  </a>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="featured-card">
-                  <a href="https://www.youtube.com/watch?v=OAc6fc6zDJc" target="_blank" rel="noopener noreferrer">
-                    <img src="images/featured-favorite-spot-still.jpg" alt="Favorite Spot Still" loading="lazy" />
-                    <div class="featured-overlay">
-                      <h3>Favorite Spot</h3>
-                      <p>Lead Role<br />Short Film • 2025</p>
-                    </div>
-                  </a>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="featured-card">
-                  <a href="https://www.instagram.com/reel/DLJ4MwRu1mU/" target="_blank" rel="noopener noreferrer">
-                    <img src="images/featured-saral-homes-ad.jpg" alt="Saral Home Ads" loading="lazy" />
-                    <div class="featured-overlay">
-                      <h3>Saral Home Ads</h3>
-                      <p>Recurring Model<br />Commercial Campaign</p>
-                    </div>
-                  </a>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="featured-card">
-                  <a href="https://www.youtube.com/watch?v=q0ZJHnDP7sY" target="_blank" rel="noopener noreferrer">
-                    <img src="images/poster_manaath.jpg" alt="Manaath Poster" loading="lazy" />
-                    <div class="featured-overlay">
-                      <h3>Manaath</h3>
-                      <p>Director<br />Short Film • 2022</p>
-                    </div>
-                  </a>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="featured-card">
-                  <a href="https://www.youtube.com/watch?v=hODJEWsuwpY" target="_blank" rel="noopener noreferrer">
-                    <img src="images/poster_thamah.jpg" alt="Thamah Poster" loading="lazy" />
-                    <div class="featured-overlay">
-                      <h3>Thamah</h3>
-                      <p>Director<br />Short Film • 2023</p>
-                    </div>
-                  </a>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="featured-card">
-                  <a href="https://www.youtube.com/watch?v=5O6OqYF0g7I" target="_blank" rel="noopener noreferrer">
-                    <img src="images/poster_priye.jpg" alt="Priye Poster" loading="lazy" />
-                    <div class="featured-overlay">
-                      <h3>Priye</h3>
-                      <p>Director<br />Musical Video • 2024</p>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-button-next">&#10095;</div>
-            <div class="swiper-button-prev">&#10094;</div>
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-      </section>
-
-      <section id="about" class="bio">
-        <div class="container">
-          <div class="bio-content">
-            <h2>About Me</h2>
-            <ul>
-              <li><i class="fas fa-calendar-alt"></i> Age Range: 18-28</li>
-              <li><i class="fas fa-ruler-vertical"></i> Height: 173 cm</li>
-              <li><i class="fas fa-weight-hanging"></i> Build: Medium/Slender</li>
-              <li><i class="fas fa-palette"></i> Hair: Curly, Black</li>
-              <li><i class="fas fa-eye"></i> Eyes: Dark Brown</li>
-              <li><i class="fas fa-globe"></i> Languages: English, Malayalam, Hindi, Tamil</li>
-              <li><i class="fas fa-graduation-cap"></i> Training: Screen Acting Course, Nova Film Institute</li>
-            </ul>
-          </div>
-          <!-- FIX: Added role="img" so the aria-label is honoured by screen readers -->
-          <div class="bio-image" role="img" aria-label="Versatility still image"></div>
-        </div>
-      </section>
-
-      <section id="gallery" class="gallery-tease">
-        <div class="container">
-          <h2>Stills & Frames</h2>
-
-          <div class="gallery-tabs" role="tablist" aria-label="Gallery categories">
-            <button class="tab-btn active" data-tab="photoshoot" role="tab" aria-selected="true" aria-controls="photoshoot">Photoshoot</button>
-            <button class="tab-btn" data-tab="soothravakyam" role="tab" aria-selected="false" aria-controls="soothravakyam">Soothravakyam</button>
-            <button class="tab-btn" data-tab="ad1" role="tab" aria-selected="false" aria-controls="ad1">Ad 1</button>
-            <button class="tab-btn" data-tab="ad2" role="tab" aria-selected="false" aria-controls="ad2">Ad 2</button>
-            <button class="tab-btn" data-tab="ad3" role="tab" aria-selected="false" aria-controls="ad3">Ad 3</button>
-            <button class="tab-btn" data-tab="cleanshave" role="tab" aria-selected="false" aria-controls="cleanshave">Clean Shave</button>
-          </div>
-
-          <div class="gallery-content">
-            <div class="tab-panel active" id="photoshoot" role="tabpanel">
-              <div class="gallery-grid">
-                <div class="gallery-item" style="background-image: url('images/gallery/Cigg_1.jpg');"></div>
-                <div class="gallery-item" style="background-image: url('images/gallery/Cigg_2.jpg'); background-position: center 30%;"></div>
-                <div class="gallery-item" style="background-image: url('images/gallery/Cigg_3.jpg');"></div>
-                <div class="gallery-item" style="background-image: url('images/gallery/Cigg_4.jpg');"></div>
-              </div>
-            </div>
-
-            <div class="tab-panel" id="soothravakyam" role="tabpanel">
-              <div class="gallery-grid">
-                <div class="gallery-item" style="background-image: url('images/gallery/sv_1.png'); background-position: 40% center;"></div>
-                <div class="gallery-item" style="background-image: url('images/gallery/sv_2.png'); background-position: center 2%;"></div>
-                <div class="gallery-item" style="background-image: url('images/gallery/sv_3.png');"></div>
-                <div class="gallery-item" style="background-image: url('images/gallery/sv_4.png');"></div>
-              </div>
-            </div>
-
-            <div class="tab-panel" id="ad1" role="tabpanel">
-              <div class="gallery-grid">
-                <div class="gallery-item" style="background-image: url('images/gallery/Mango_1.jpg');"></div>
-                <div class="gallery-item" style="background-image: url('images/gallery/Mango_2.jpg'); background-position: center 33%;"></div>
-                <div class="gallery-item" style="background-image: url('images/gallery/Mango_3.jpg'); background-position: center 40%;"></div>
-                <div class="gallery-item" style="background-image: url('images/gallery/Mango_4.jpg'); background-position: center 40%;"></div>
-              </div>
-            </div>
-
-            <div class="tab-panel" id="ad2" role="tabpanel">
-              <div class="gallery-grid">
-                <div class="gallery-item" style="background-image: url('images/gallery/Naseef_01.jpeg'); background-position: 60% center;"></div>
-                <div class="gallery-item" style="background-image: url('images/gallery/Naseef_02.jpeg'); background-position: center 45%;"></div>
-                <div class="gallery-item" style="background-image: url('images/gallery/Naseef_03.jpeg');"></div>
-                <div class="gallery-item" style="background-image: url('images/gallery/Naseef_04.jpg'); background-position: center 15%;"></div>
-              </div>
-            </div>
-
-            <div class="tab-panel" id="ad3" role="tabpanel">
-              <div class="gallery-grid">
-                <div class="gallery-item" style="background-image: url('images/gallery/Swing_1.jpeg'); background-position: 80% center;"></div>
-                <div class="gallery-item" style="background-image: url('images/gallery/Swing_2.jpeg');"></div>
-                <div class="gallery-item" style="background-image: url('images/gallery/Swing_3.jpeg'); background-position: 70% center;"></div>
-                <div class="gallery-item" style="background-image: url('images/gallery/Swing_4.jpeg'); background-position: center 20%;"></div>
-              </div>
-            </div>
-
-            <div class="tab-panel" id="cleanshave" role="tabpanel">
-              <div class="gallery-grid">
-                <div class="gallery-item" style="background-image: url('images/gallery/Naseef_CS_01.jpg');"></div>
-                <div class="gallery-item" style="background-image: url('images/gallery/Naseef_CS_02.jpg');"></div>
-                <div class="gallery-item" style="background-image: url('images/gallery/Naseef_CS_03.jpg'); background-position: center 2%;"></div>
-                <div class="gallery-item" style="background-image: url('images/gallery/Naseef_CS_04.jpg'); background-position: center 18%;"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="certificate">
-        <div class="container">
-          <h2>Screen Acting Course</h2>
-          <img src="images/certificate-nova-acting-course.jpg" alt="Nova Film Institute Certificate" loading="lazy" />
-          <p>Nova Film Institute, Ernakulam</p>
-        </div>
-      </section>
-
-      <section id="contact" class="contact-section">
-        <div class="container">
-          <div class="contact-card">
-            <div class="card-text">
-              <h2>Let's Connect</h2>
-              <div class="underline"></div>
-              <ul>
-                <li>
-                  <a href="https://wa.me/917907885626" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-whatsapp"></i> +91 79078 85626
-                  </a>
-                </li>
-                <li>
-                  <a href="mailto:naseefppactor@gmail.com">
-                    <i class="fas fa-envelope"></i> naseefppactor@gmail.com
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.instagram.com/naseef_pp/" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-instagram"></i> @naseef_pp
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <footer>
-        <div class="container">
-          <div class="footer-icons">
-            <a href="https://www.instagram.com/naseef_pp/" target="_blank" rel="noopener noreferrer" title="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://wa.me/917907885626" target="_blank" rel="noopener noreferrer" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-            <a href="mailto:naseefppactor@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-          </div>
-          <!-- FIX: Updated copyright year from 2025 to 2026 -->
-          <p class="copyright">© 2026 Naseef P.P. All rights reserved.</p>
-        </div>
-      </footer>
+  <!-- HOME -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Naseef P P</h1>
+      <!-- Thin accent rule between name and tagline -->
+      <div class="hero-rule" aria-hidden="true"></div>
+      <p class="tagline">Actor &amp; Filmmaker</p>
+      <div class="cta-group">
+        <!-- Primary: solid accent fill -->
+        <a href="#teasers" class="cta-primary">View Filmography</a>
+        <!-- Ghost: accent border + text, no fill, subtle fill on hover -->
+        <a href="#contact" class="cta-ghost">Get in Touch</a>
+      </div>
     </div>
-  </div>
+  </section>
 
+  <!-- FILMOGRAPHY -->
+  <section id="teasers" class="teasers">
+    <div class="container">
+      <h2>Filmography</h2>
+      <div class="swiper-outer">
+        <div class="swiper featured-swiper">
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="featured-card">
+                <a href="https://www.imdb.com/title/tt34335405/" target="_blank" rel="noopener noreferrer">
+                  <img src="images/featured-soothravakyam-poster.jpg" alt="Soothravakyam Poster" loading="lazy" />
+                  <div class="featured-overlay">
+                    <h3>Soothravakyam</h3>
+                    <p>Lead Role<br />Feature Film • 2025</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="featured-card">
+                <a href="https://youtu.be/Pho5Cjrw6_U" target="_blank" rel="noopener noreferrer">
+                  <img src="images/poster_shilpa.jpeg" alt="Shilpa Tamil Short film Poster" loading="lazy" />
+                  <div class="featured-overlay">
+                    <h3>Shilpa</h3>
+                    <p>Hero<br />Tamil Short Film • 2026</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="featured-card">
+                <a href="https://youtu.be/0GG3pB6Z4kk" target="_blank" rel="noopener noreferrer">
+                  <img src="images/poster_orumiddleclasspadam_02.jpeg" alt="Oru Middle Class Padam Poster" loading="lazy" />
+                  <div class="featured-overlay">
+                    <h3>Oru Middleclass Padam</h3>
+                    <p>Hero<br />Short Film • 2026</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="featured-card">
+                <a href="https://www.youtube.com/watch?v=OAc6fc6zDJc" target="_blank" rel="noopener noreferrer">
+                  <img src="images/featured-favorite-spot-still.jpg" alt="Favorite Spot Still" loading="lazy" />
+                  <div class="featured-overlay">
+                    <h3>Favorite Spot</h3>
+                    <p>Lead Role<br />Short Film • 2025</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="featured-card">
+                <a href="https://www.instagram.com/reel/DLJ4MwRu1mU/" target="_blank" rel="noopener noreferrer">
+                  <img src="images/featured-saral-homes-ad.jpg" alt="Saral Home Ads" loading="lazy" />
+                  <div class="featured-overlay">
+                    <h3>Saral Home Ads</h3>
+                    <p>Recurring Model<br />Commercial Campaign</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="featured-card">
+                <a href="https://www.youtube.com/watch?v=q0ZJHnDP7sY" target="_blank" rel="noopener noreferrer">
+                  <img src="images/poster_manaath.jpg" alt="Manaath Poster" loading="lazy" />
+                  <div class="featured-overlay">
+                    <h3>Manaath</h3>
+                    <p>Director<br />Short Film • 2022</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="featured-card">
+                <a href="https://www.youtube.com/watch?v=hODJEWsuwpY" target="_blank" rel="noopener noreferrer">
+                  <img src="images/poster_thamah.jpg" alt="Thamah Poster" loading="lazy" />
+                  <div class="featured-overlay">
+                    <h3>Thamah</h3>
+                    <p>Director<br />Short Film • 2023</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="featured-card">
+                <a href="https://www.youtube.com/watch?v=5O6OqYF0g7I" target="_blank" rel="noopener noreferrer">
+                  <img src="images/poster_priye.jpg" alt="Priye Poster" loading="lazy" />
+                  <div class="featured-overlay">
+                    <h3>Priye</h3>
+                    <p>Director<br />Musical Video • 2024</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+
+  <!-- PROFILE (formerly About) -->
+  <section id="about" class="bio">
+    <div class="container">
+      <div class="bio-content">
+        <h2>Profile</h2>
+        <ul>
+          <li><i class="fas fa-calendar-alt"></i> Age Range: 18–28</li>
+          <li><i class="fas fa-ruler-vertical"></i> Height: 173 cm</li>
+          <li><i class="fas fa-weight-hanging"></i> Build: Medium / Slender</li>
+          <li><i class="fas fa-palette"></i> Hair: Curly, Black</li>
+          <li><i class="fas fa-eye"></i> Eyes: Dark Brown</li>
+
+          <!-- Language pills — hover changes to darker accent -->
+          <li class="lang-item">
+            <span class="lang-item-top">
+              <i class="fas fa-globe"></i>
+              <span class="lang-label">Languages:</span>
+            </span>
+            <span class="lang-tags">
+              <button class="lang-tag" data-video="c6k5ZNzTsw0" data-lang="English">
+                English <i class="fas fa-play"></i>
+              </button>
+              <button class="lang-tag" data-video="tHgNfsobaJc" data-lang="Malayalam">
+                Malayalam <i class="fas fa-play"></i>
+              </button>
+              <button class="lang-tag" data-video="BrYG6WDyjZA" data-lang="Hindi">
+                Hindi <i class="fas fa-play"></i>
+              </button>
+              <button class="lang-tag" data-video="mGeZB0aWpm4" data-lang="Tamil">
+                Tamil <i class="fas fa-play"></i>
+              </button>
+            </span>
+          </li>
+
+          <!-- Training — click crossfades bio image to certificate.
+               Two chevrons: desktop shows right/left, mobile shows down/up.
+               Both rotate 180deg on active — right→left, down→up. -->
+          <li class="cert-item">
+            <div class="cert-trigger" tabindex="0" role="button" aria-expanded="false">
+              <i class="fas fa-graduation-cap"></i>
+              <span>Training: Screen Acting Course, Nova Film Institute</span>
+              <!-- Desktop: points right (→ left when active) -->
+              <i class="fas fa-chevron-right cert-chevron cert-chevron-desktop" aria-hidden="true"></i>
+              <!-- Mobile: points down (→ up when active) -->
+              <i class="fas fa-chevron-down cert-chevron cert-chevron-mobile" aria-hidden="true"></i>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+      <!-- Bio image slot — crossfades between portrait and certificate -->
+      <div class="bio-image-wrap">
+        <div class="bio-image bio-img-portrait"
+             role="img"
+             aria-label="Naseef P P — versatility still"></div>
+        <div class="bio-image bio-img-cert"
+             role="img"
+             aria-label="Nova Film Institute — Screen Acting Course Certificate"
+             aria-hidden="true">
+          <img src="images/certificate-nova-acting-course.jpg"
+               alt="Nova Film Institute Screen Acting Course Certificate"
+               loading="lazy" />
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="gallery-tease">
+    <div class="container">
+      <h2>Stills &amp; Frames</h2>
+
+      <div class="gallery-tabs" role="tablist" aria-label="Gallery categories">
+        <button class="tab-btn active" data-tab="photoshoot"    role="tab" aria-selected="true"  aria-controls="photoshoot">Photoshoot</button>
+        <button class="tab-btn"        data-tab="soothravakyam" role="tab" aria-selected="false" aria-controls="soothravakyam">On Screen</button>
+        <button class="tab-btn"        data-tab="ad1"           role="tab" aria-selected="false" aria-controls="ad1">Portrait</button>
+        <button class="tab-btn"        data-tab="ad2"           role="tab" aria-selected="false" aria-controls="ad2">Campaign</button>
+        <button class="tab-btn"        data-tab="ad3"           role="tab" aria-selected="false" aria-controls="ad3">Candid</button>
+        <button class="tab-btn"        data-tab="cleanshave"    role="tab" aria-selected="false" aria-controls="cleanshave">Clean Shave</button>
+      </div>
+
+      <div class="gallery-content">
+        <div class="tab-panel active" id="photoshoot" role="tabpanel">
+          <div class="gallery-grid">
+            <div class="gallery-item" style="background-image: url('images/gallery/Cigg_1.jpg');"></div>
+            <div class="gallery-item" style="background-image: url('images/gallery/Cigg_2.jpg'); background-position: center 30%;"></div>
+            <div class="gallery-item" style="background-image: url('images/gallery/Cigg_3.jpg');"></div>
+            <div class="gallery-item" style="background-image: url('images/gallery/Cigg_4.jpg');"></div>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="soothravakyam" role="tabpanel">
+          <div class="gallery-grid">
+            <div class="gallery-item" style="background-image: url('images/gallery/sv_1.png'); background-position: 40% center;"></div>
+            <div class="gallery-item" style="background-image: url('images/gallery/sv_2.png'); background-position: center 2%;"></div>
+            <div class="gallery-item" style="background-image: url('images/gallery/sv_3.png');"></div>
+            <div class="gallery-item" style="background-image: url('images/gallery/sv_4.png');"></div>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="ad1" role="tabpanel">
+          <div class="gallery-grid">
+            <div class="gallery-item" style="background-image: url('images/gallery/Mango_1.jpg');"></div>
+            <div class="gallery-item" style="background-image: url('images/gallery/Mango_2.jpg'); background-position: center 33%;"></div>
+            <div class="gallery-item" style="background-image: url('images/gallery/Mango_3.jpg'); background-position: center 40%;"></div>
+            <div class="gallery-item" style="background-image: url('images/gallery/Mango_4.jpg'); background-position: center 40%;"></div>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="ad2" role="tabpanel">
+          <div class="gallery-grid">
+            <div class="gallery-item" style="background-image: url('images/gallery/Naseef_01.jpeg'); background-position: 60% center;"></div>
+            <div class="gallery-item" style="background-image: url('images/gallery/Naseef_02.jpeg'); background-position: center 45%;"></div>
+            <div class="gallery-item" style="background-image: url('images/gallery/Naseef_03.jpeg');"></div>
+            <div class="gallery-item" style="background-image: url('images/gallery/Naseef_04.jpg'); background-position: center 15%;"></div>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="ad3" role="tabpanel">
+          <div class="gallery-grid">
+            <div class="gallery-item" style="background-image: url('images/gallery/Swing_1.jpeg'); background-position: 80% center;"></div>
+            <div class="gallery-item" style="background-image: url('images/gallery/Swing_2.jpeg');"></div>
+            <div class="gallery-item" style="background-image: url('images/gallery/Swing_3.jpeg'); background-position: 70% center;"></div>
+            <div class="gallery-item" style="background-image: url('images/gallery/Swing_4.jpeg'); background-position: center 20%;"></div>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="cleanshave" role="tabpanel">
+          <div class="gallery-grid">
+            <div class="gallery-item" style="background-image: url('images/gallery/Naseef_CS_01.jpg');"></div>
+            <div class="gallery-item" style="background-image: url('images/gallery/Naseef_CS_02.jpg');"></div>
+            <div class="gallery-item" style="background-image: url('images/gallery/Naseef_CS_03.jpg'); background-position: center 2%;"></div>
+            <div class="gallery-item" style="background-image: url('images/gallery/Naseef_CS_04.jpg'); background-position: center 18%;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <div class="contact-card">
+        <div class="card-text">
+          <h2>Let's Connect</h2>
+          <div class="underline"></div>
+          <ul>
+            <li>
+              <a href="https://wa.me/917907885626" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp"></i> +91 79078 85626
+              </a>
+            </li>
+            <li>
+              <a href="mailto:naseefppactor@gmail.com">
+                <i class="fas fa-envelope"></i> naseefppactor@gmail.com
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/naseef_pp/" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-instagram"></i> @naseef_pp
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-icons">
+        <a href="https://www.instagram.com/naseef_pp/"   target="_blank" rel="noopener noreferrer" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/917907885626"             target="_blank" rel="noopener noreferrer" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="mailto:naseefppactor@gmail.com"         title="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/naseef-pp/" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <p class="copyright">© 2026 Naseef P.P. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
   <button class="back-to-top" aria-label="Back to top">
     <i class="fas fa-arrow-up"></i>
   </button>
 
+  <!-- Photo Lightbox -->
   <div id="lightbox" class="lightbox" aria-modal="true" role="dialog">
-    <!-- FIX: Changed <span> controls to <button> elements so they are keyboard focusable and semantically correct -->
     <button class="lightbox-close" aria-label="Close">&times;</button>
     <button class="lightbox-prev" aria-label="Previous">&#10094;</button>
     <button class="lightbox-next" aria-label="Next">&#10095;</button>
     <div class="lightbox-inner">
-        <img class="lightbox-img" src="" alt="Expanded view" />
+      <img class="lightbox-img" src="" alt="Expanded gallery image" />
     </div>
   </div>
 
-  <!-- FIX: Swiper JS pinned to major version 11 -->
+  <!-- Language Video Modal -->
+  <div id="lang-modal" class="lang-modal" role="dialog" aria-modal="true">
+    <div class="lang-modal-content">
+      <div class="lang-modal-header">
+        <span id="lang-modal-title" class="lang-modal-label"></span>
+        <button class="lang-modal-close" aria-label="Close video">&times;</button>
+      </div>
+      <div class="lang-player-wrap">
+        <div id="lang-player-container">
+          <div id="lang-youtube-player"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="https://unpkg.com/swiper@11/swiper-bundle.min.js"></script>
-  <!-- Site JS -->
   <script src="script.js"></script>
+
 </body>
 </html>
